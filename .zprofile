@@ -18,6 +18,22 @@ export CLICOLOR=1
 export EXA_COLORS="ga=38;5;213:gm=32:*.py=38;5;114:Dockerfile=38;5;074;1:docker-compose.*=38;5;074;1:*.pdf=38;5;208:*.txt=38;5;244:*.html=38;5;137;1:*.env*=31;0;01:*.sql*=38;5;28"
 export LSCOLORS=gxfxcxdxbxegedabaggagx
 
+# powerline-shell
+function powerline_precmd() {
+    PS1="$(powerline-shell --shell zsh $?)"
+}
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
+
 ###
 # 🚁 NAVIGATION
 ###

@@ -1,0 +1,9 @@
+{
+    "segments": [
+      "cwd",
+      "git",
+      "ssh",
+      "virtual_env"
+    ],
+    "mode": "flat"
+}
