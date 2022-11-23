@@ -1,0 +1,47 @@
+[user]
+	name = Zach Valenta
+	email = zach.valenta@unitedmasters.com
+[pull]
+	ff = only
+[push]
+	default = simple
+[init]
+	defaultBranch = main
+[alias]
+	ai = add -p
+	b = branch -v
+	c = commit -v
+	co = checkout
+	d = diff
+	ds = diff --staged
+	far = remote -v show
+	conf = config --global --list
+	nb = checkout -b
+	l = log --pretty=format:'%C(auto)%h %C(white yellow bold) %<|(20) %as %C(auto) %d %s'
+	s = status -s  # shorter output
+[color]
+	ui = always
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[init]
+	defaultBranch = main

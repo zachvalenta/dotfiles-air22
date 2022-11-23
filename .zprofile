@@ -79,6 +79,32 @@ alias o="open"
 alias oo="open ."
 
 ###
+# 💾  GIT
+###
+
+alias gb="git b"  # current branch
+alias gs="git s"  # status
+alias gd="git d"  # diff working directory and repo
+alias gds="git ds"  # diff staging area and repo
+alias gai="git ai"  # interactive stage
+function ga(){  # add specific file(s) or add all (sans args)
+    if [ $# -eq 0 ]; then
+        read "response?Are you sure ? [y/n] "
+        response=${response:l}  # to lower
+        if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
+            git add -A
+        fi
+    else
+        for var in "$@"
+        do
+            git add "$var"
+        done
+    fi
+}
+alias gl="git l"  # prettified log of previous 10 commits
+alias gc="git c"  # commit
+
+###
 # 🛣 PATH
 ###
 
