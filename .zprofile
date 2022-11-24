@@ -5,6 +5,8 @@
 echo -n "$(tput setaf 5) updating ~/.zprofile at$(tput sgr0): "; date
 alias zp="vim $HOME/.zprofile"
 alias upzp="source $HOME/.zprofile"
+export MANPAGER=bat
+export EDITOR=vim
 
 DOC_DIR="/Users/zach/Documents/zvroot"
 MAT_DIR="$DOC_DIR/materials"
@@ -38,6 +40,7 @@ fi
 # 🚁 NAVIGATION
 ###
 
+alias b="bat"
 alias notes="cd $NOTE_DIR"
 alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
