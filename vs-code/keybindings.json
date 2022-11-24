@@ -1,0 +1,23 @@
+[
+    { "key": "cmd+1", "command": "workbench.action.openEditorAtIndex1" },
+    { "key": "cmd+2", "command": "workbench.action.openEditorAtIndex2" },
+    { "key": "cmd+3", "command": "workbench.action.openEditorAtIndex3" },
+    { "key": "cmd+4", "command": "workbench.action.openEditorAtIndex4" },
+    { "key": "cmd+5", "command": "workbench.action.openEditorAtIndex5" },
+    { "key": "cmd+6", "command": "workbench.action.openEditorAtIndex6" },
+    { "key": "cmd+7", "command": "workbench.action.openEditorAtIndex7" },
+    { "key": "cmd+8", "command": "workbench.action.openEditorAtIndex8" },
+    { "key": "cmd+9", "command": "workbench.action.lastEditorInGroup" },
+
+    { "key": "cmd+l", "command": "workbench.action.gotoLine" },
+    { "key": "cmd+r", "command": "workbench.action.gotoSymbol" },
+    { "key": "alt+d", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" }, 
+    { "key": "cmd+alt+enter", "command": "editor.action.openLink" },
+
+    { "key": "alt+cmd+r", "command": "workbench.action.closeEditorsToTheRight" },
+    { "key": "ctrl+c", "command": "workbench.action.clearEditorHistory" },
+    { "key": "ctrl+b", "command": "workbench.action.toggleSidebarVisibility" },
+
+    { "key": "cmd+i", "command": "md-shortcut.toggleItalic", "when": "editorTextFocus && markdownShortcuts:enabled" },
+    { "key": "cmd+b", "command": "md-shortcut.toggleBold", "when": "editorTextFocus && markdownShortcuts:enabled" }
+]

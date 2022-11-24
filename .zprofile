@@ -44,6 +44,7 @@ alias b="bat"
 alias notes="cd $NOTE_DIR"
 alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
+alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
 
 # code
 alias denv="cd $DENV_DIR"

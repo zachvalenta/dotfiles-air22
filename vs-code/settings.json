@@ -1,0 +1,40 @@
+{
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.accessibilitySupport": "off",
+    "editor.detectIndentation": false,
+    "editor.fontSize": 14,
+    "editor.lineNumbers": "relative",
+    "editor.wordWrap": "on",
+    "extensions.ignoreRecommendations": true,
+    "files.exclude": {
+        "node_modules": true,
+        "venv": true
+    },
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        }
+    },
+    "markdown.extension.italic.indicator": "_",
+    "outline.showModules": false,
+    "outline.showVariables": false,
+    "search.exclude": {
+        "**/.git": true,
+        "**/node_modules": true
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.enableBell": false,
+    "update.mode": "none",
+    "vim.debug.silent": true,
+    "vim.useSystemClipboard": true,
+    "window.restoreWindows": "one",
+    "window.zoomLevel": 1,
+    "workbench.colorCustomizations": {
+        "activityBar.activeBorder": "#8A2BE2"
+    },
+    "workbench.editor.openPositioning": "last",
+    "workbench.colorTheme": "Noctis Obscuro",
+    "workbench.startupEditor": "newUntitledFile"
+}
