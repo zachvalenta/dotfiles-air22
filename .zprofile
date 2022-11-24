@@ -38,6 +38,26 @@ if [ "$TERM" != "linux" ]; then
 fi
 
 ###
+# 🏔 WORKFLOW
+###
+
+# 💡 non-fiction during meals, fiction at night
+alias wf="rg 'WF' $HOME/.bash_profile -A18 -B5"
+
+# 🌆
+# alias shui="bat $CODE_DIR/lang/html-css/content/about/quotes.md"
+# function nian(){
+    # year="$1-year.md";
+    # path="$HOME/Desktop/zvmac/personal/calendar/logs/yearly";
+    # bat "$path/$year";
+# }
+
+# 🌇
+alias kba="rg -UA 2 '## board\n\n[\w|\*]' $NOTE_DIR/art"
+alias kbh="rg -UA 1 '## board\n\n[\w|\*]' $NOTE_DIR/humanities"
+alias kbs="rg -UA 1 '## board\n\n[\w|\*]' $NOTE_DIR/stem"
+
+###
 # 🚁 NAVIGATION
 ###
 
@@ -47,6 +67,7 @@ alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
 alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
 alias mat="cd $MAT_DIR"
+alias dev="cd $DEV_DIR"
 
 # code
 alias denv="cd $DENV_DIR"
