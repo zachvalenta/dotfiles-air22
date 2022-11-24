@@ -3,12 +3,13 @@
 ###
 
 echo -n "$(tput setaf 5) updating ~/.zprofile at$(tput sgr0): "; date
+set -o emacs
 alias zp="vim $HOME/.zprofile"
 alias upzp="source $HOME/.zprofile"
 export MANPAGER=bat
 export EDITOR=vim
 
-DOC_DIR="/Users/zach/Documents/zvroot"
+DOC_DIR="$HOME/Documents/zvroot"
 MAT_DIR="$DOC_DIR/materials"
 NOTE_DIR="$DOC_DIR/notes"
 PER_DIR="$DOC_DIR/personal"
@@ -45,6 +46,7 @@ alias notes="cd $NOTE_DIR"
 alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
 alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
+alias mat="cd $MAT_DIR"
 
 # code
 alias denv="cd $DENV_DIR"
@@ -97,6 +99,7 @@ alias m="make"
 alias mkd='function mkd(){ mkdir "$1"; cd "$1";}; mkd'
 alias o="open"
 alias oo="open ."
+alias v="vimv"
 
 ###
 # 💾  GIT
@@ -138,3 +141,7 @@ fi
 
 # pipx
 export PATH="$PATH:/Users/zach/.local/bin"
+
+# my bin
+export PATH="$DENV_DIR/bin:${PATH}"
+
