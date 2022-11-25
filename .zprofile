@@ -62,7 +62,7 @@ alias kbs="rg -UA 1 '## board\n\n[\w|\*]' $NOTE_DIR/stem"
 ###
 
 alias b="bat"
-alias notes="cd $NOTE_DIR"
+alias notes="\cd $NOTE_DIR; jb"
 alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
 alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
@@ -121,6 +121,8 @@ alias mkd='function mkd(){ mkdir "$1"; cd "$1";}; mkd'
 alias o="open"
 alias oo="open ."
 alias v="vimv"
+alias vsc="open -a 'Visual Studio Code'"
+alias vscfr="ls ~/.vscode/extensions/ > $DOT_DIR/vs-code/pkg-vsc.txt"
 
 ###
 # 💾  GIT
