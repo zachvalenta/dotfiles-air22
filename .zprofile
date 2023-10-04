@@ -4,7 +4,7 @@
 
 echo -n "$(tput setaf 5) updating ~/.zprofile at$(tput sgr0): "; date
 set -o emacs
-alias zp="vim $HOME/.zprofile"
+alias zp="vsc $HOME/.zprofile"
 alias upzp="source $HOME/.zprofile"
 export MANPAGER=bat
 export EDITOR=vim
@@ -63,17 +63,24 @@ alias kbs="rg -UA 1 '## board\n\n[\w|\*]' $NOTE_DIR/stem"
 
 alias b="bat"
 alias notes="\cd $NOTE_DIR; jb"
+alias per="\cd $PER_DIR"
 alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
 alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
 alias mat="cd $MAT_DIR"
 alias dev="cd $DEV_DIR"
+alias yin="cd $MAT_DIR/music-lib"
+alias per="cd $PER_DIR"
+alias logs="cd $PER_DIR/logs"
+alias ren="cd $PER_DIR/people"
+alias gr="\cd $PER_DIR/tracking; l"
+alias gz="vim $PER_DIR/tracking/23/10.dat"
+alias tm="b $PER_DIR/tracking/23/10.dat"
 
 # code
 alias denv="cd $DENV_DIR"
 alias bin="cd $DENV_DIR/bin"
 alias dot="cd $DOT_DIR"
-alias logs="cd $DENV_DIR/logs"
 
 ###
 # 🛠 UTILS
@@ -123,6 +130,8 @@ alias oo="open ."
 alias v="vimv"
 alias vsc="open -a 'Visual Studio Code'"
 alias vscfr="ls ~/.vscode/extensions/ > $DOT_DIR/vs-code/pkg-vsc.txt"
+export PYTHONDONTWRITEBYTECODE=1
+alias bpy="bpython"
 
 ###
 # 💾  GIT
@@ -133,20 +142,7 @@ alias gs="git s"  # status
 alias gd="git d"  # diff working directory and repo
 alias gds="git ds"  # diff staging area and repo
 alias gai="git ai"  # interactive stage
-function ga(){  # add specific file(s) or add all (sans args)
-    if [ $# -eq 0 ]; then
-        read "response?Are you sure ? [y/n] "
-        response=${response:l}  # to lower
-        if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
-            git add -A
-        fi
-    else
-        for var in "$@"
-        do
-            git add "$var"
-        done
-    fi
-}
+alias ga="git add -A"
 alias gl="git l"  # prettified log of previous 10 commits
 alias gc="git c"  # commit
 
