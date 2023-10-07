@@ -53,9 +53,9 @@ alias wf="rg 'WF' $HOME/.bash_profile -A18 -B5"
 # }
 
 # 🌇
-alias kba="rg -UA 2 '## board\n\n[\w|\*]' $NOTE_DIR/art"
-alias kbh="rg -UA 1 '## board\n\n[\w|\*]' $NOTE_DIR/humanities"
-alias kbs="rg -UA 1 '## board\n\n[\w|\*]' $NOTE_DIR/stem"
+alias kba="rg -UA 2 '## now\n\n[\w|\*]' $NOTE_DIR/art"
+alias kbh="rg -UA 1 '## now\n\n[\w|\*]' $NOTE_DIR/humanities"
+alias kbs="rg -UA 1 '## now\n\n[\w|\*]' $NOTE_DIR/stem"
 
 ###
 # 🚁 NAVIGATION
@@ -73,11 +73,12 @@ alias yin="cd $MAT_DIR/music-lib"
 alias per="cd $PER_DIR"
 alias logs="cd $PER_DIR/logs"
 alias ren="cd $PER_DIR/people"
-alias gr="\cd $PER_DIR/tracking; l"
-alias gz="vim $PER_DIR/tracking/23/10.dat"
+alias gr="\cd $PER_DIR/tracking; gds"
+alias gz="vim $PER_DIR/tracking/23/10.dat; gr; ga; gds"
 alias tm="b $PER_DIR/tracking/23/10.dat"
+alias shu="cd $MAT_DIR/bookcase-sjk"
 
-# code
+# CODE
 alias denv="cd $DENV_DIR"
 alias bin="cd $DENV_DIR/bin"
 alias dot="cd $DOT_DIR"
@@ -86,7 +87,7 @@ alias dot="cd $DOT_DIR"
 # 🛠 UTILS
 ###
 
-# exa
+# EXA
 alias lh="l | head"
 function l(){
     if [ "$1" ]; then
@@ -132,6 +133,13 @@ alias vsc="open -a 'Visual Studio Code'"
 alias vscfr="ls ~/.vscode/extensions/ > $DOT_DIR/vs-code/pkg-vsc.txt"
 export PYTHONDONTWRITEBYTECODE=1
 alias bpy="bpython"
+
+function kai(){
+    fname="$1.md";
+    cwd="$(pwd)";
+    touch "$cwd/$fname";
+    open "$cwd/$fname";
+}
 
 ###
 # 💾  GIT
