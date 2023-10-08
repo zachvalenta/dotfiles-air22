@@ -20,6 +20,7 @@ DOT_DIR="$DENV_DIR/dotfiles"
 export CLICOLOR=1
 export EXA_COLORS="ga=38;5;213:gm=32:*.py=38;5;114:Dockerfile=38;5;074;1:docker-compose.*=38;5;074;1:*.pdf=38;5;208:*.txt=38;5;244:*.html=38;5;137;1:*.env*=31;0;01:*.sql*=38;5;28"
 export LSCOLORS=gxfxcxdxbxegedabaggagx
+export RIPGREP_CONFIG_PATH="$DOT_DIR/.ripgreprc"
 
 # powerline-shell
 function powerline_precmd() {
@@ -76,7 +77,7 @@ alias ren="cd $PER_DIR/people"
 alias gr="\cd $PER_DIR/tracking; gds"
 alias gz="vim $PER_DIR/tracking/23/10.dat; gr; ga; gds"
 alias tm="b $PER_DIR/tracking/23/10.dat"
-alias shu="cd $MAT_DIR/bookcase-sjk"
+alias shu="cd $MAT_DIR/bookcase-sjk; br"
 
 # CODE
 alias denv="cd $DENV_DIR"
