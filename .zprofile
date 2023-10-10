@@ -42,8 +42,7 @@ fi
 # 🏔 WORKFLOW
 ###
 
-# 💡 non-fiction during meals, fiction at night
-alias wf="rg 'WF' $HOME/.bash_profile -A18 -B5"
+alias wf="rg 'WF' $HOME/.zprofile -A18 -B5"
 
 # 🌆
 # alias shui="bat $CODE_DIR/lang/html-css/content/about/quotes.md"
@@ -70,6 +69,7 @@ alias desk="cd $HOME/Desktop"
 alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
 alias mat="cd $MAT_DIR"
 alias dev="cd $DEV_DIR"
+alias py="cd $DEV_DIR/lang/python"
 alias yin="cd $MAT_DIR/music-lib"
 alias per="cd $PER_DIR"
 alias logs="cd $PER_DIR/logs"
