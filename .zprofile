@@ -11,7 +11,7 @@ export EDITOR=vim
 
 DOC_DIR="$HOME/Documents/zvroot"
 MAT_DIR="$DOC_DIR/materials"
-NOTE_DIR="$DOC_DIR/notes"
+DOMAINS_DIR="$DOC_DIR/notes/domains"
 PER_DIR="$DOC_DIR/personal"
 DEV_DIR="$DOC_DIR/materials/stem/dev"
 DENV_DIR="$DEV_DIR/os/denv"
@@ -53,16 +53,16 @@ alias wf="rg 'WF' $HOME/.zprofile -A18 -B5"
 # }
 
 # 🌇
-alias kba="rg -UA 2 '## now\n\n[\w|\*]' $NOTE_DIR/art"
-alias kbh="rg -UA 1 '## now\n\n[\w|\*]' $NOTE_DIR/humanities"
-alias kbs="rg -UA 1 '## now\n\n[\w|\*]' $NOTE_DIR/stem"
+alias kba="clear; rg -UA 2 '## now\n\n[\w|\*]' $DOMAINS_DIR/art"
+alias kbh="clear; rg -UA 1 '## now\n\n[\w|\*]' $DOMAINS_DIR/humanities"
+alias kbs="clear; rg -UA 1 '## now\n\n[\w|\*]' $DOMAINS_DIR/stem"
 
 ###
 # 🚁 NAVIGATION
 ###
 
 alias b="bat"
-alias notes="\cd $NOTE_DIR; jb"
+alias notes="\cd $DOMAINS_DIR; jb"
 alias per="\cd $PER_DIR"
 alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
@@ -70,7 +70,7 @@ alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
 alias mat="cd $MAT_DIR"
 alias dev="cd $DEV_DIR"
 alias py="cd $DEV_DIR/lang/python"
-alias yin="cd $MAT_DIR/music-lib"
+alias yin="cd $MAT_DIR/yin"
 alias per="cd $PER_DIR"
 alias logs="cd $PER_DIR/logs"
 alias ren="cd $PER_DIR/people"
@@ -83,6 +83,7 @@ alias shu="cd $MAT_DIR/bookcase-sjk; br"
 alias denv="cd $DENV_DIR"
 alias bin="cd $DENV_DIR/bin"
 alias dot="cd $DOT_DIR"
+alias brewfr="brew ls --versions > $DENV_DIR/logs/brew/brew-pkgs.txt"
 
 ###
 # 🛠 UTILS
