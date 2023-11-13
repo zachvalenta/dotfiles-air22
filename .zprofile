@@ -78,6 +78,7 @@ alias gr="\cd $PER_DIR/tracking; gds"
 alias gz="vim $PER_DIR/tracking/23/10.dat; gr; ga; gds"
 alias tm="b $PER_DIR/tracking/23/10.dat"
 alias shu="cd $MAT_DIR/bookcase-sjk; br"
+alias snip="cd $HOME/Library/Application\ Support/Code/User/snippets"
 
 # CODE
 alias denv="cd $DENV_DIR"
