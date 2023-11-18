@@ -1,3 +1,8 @@
+call plug#begin()
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+call plug#end()
+
 " Neil practical vim xxv
 set nocompatible " disable Vi compatability https://vi.stackexchange.com/q/25149
 filetype plugin on " enables built-in plugins (for stuff like netrw)
@@ -32,4 +37,3 @@ function! OpenURLUnderCursor()
   endif
 endfunction
 nnoremap gx :call OpenURLUnderCursor()<CR>
-
