@@ -7,7 +7,7 @@ set -o emacs
 alias zp="vsc $HOME/.zprofile"
 alias upzp="source $HOME/.zprofile"
 export MANPAGER=bat
-export EDITOR=vim
+export EDITOR=nvim
 
 DOC_DIR="$HOME/Documents/zvroot"
 MAT_DIR="$DOC_DIR/materials"
@@ -75,7 +75,7 @@ alias per="cd $PER_DIR"
 alias logs="cd $PER_DIR/logs"
 alias ren="cd $PER_DIR/people"
 alias gr="\cd $PER_DIR/tracking; gds"
-alias gz="vim $PER_DIR/tracking/23/10.dat; gr; ga; gds"
+alias gz="nvim $PER_DIR/tracking/23/11.dat; gr; ga; gds"
 alias tm="b $PER_DIR/tracking/23/10.dat"
 alias shu="cd $MAT_DIR/bookcase-sjk; br"
 alias snip="cd $HOME/Library/Application\ Support/Code/User/snippets"
@@ -130,6 +130,7 @@ alias cd='function cdl(){ cd "$1"; pwd; l;}; cdl'
 alias cppath='pwd | pbcopy'
 alias m="make"
 alias mkd='function mkd(){ mkdir "$1"; cd "$1";}; mkd'
+alias nv="nvim"
 alias o="open"
 alias oo="open ."
 alias v="vimv"
