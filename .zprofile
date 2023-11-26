@@ -9,6 +9,7 @@ alias upzp="source $HOME/.zprofile"
 export MANPAGER=bat
 export EDITOR=nvim
 
+WORKSPACE_DIR="$HOME/Documents/zv-tele-workspace"
 DOC_DIR="$HOME/Documents/zvroot"
 MAT_DIR="$DOC_DIR/materials"
 DOMAINS_DIR="$DOC_DIR/notes/domains"
@@ -61,7 +62,7 @@ alias kbs="clear; rg -UA 1 '## now\n\n[\w|\*]' $DOMAINS_DIR/stem"
 # 🚁 NAVIGATION
 ###
 
-alias b="bat"
+alias b="br"
 alias notes="\cd $DOMAINS_DIR; jb"
 alias per="\cd $PER_DIR"
 alias home="cd $HOME"
@@ -80,6 +81,7 @@ alias tm="b $PER_DIR/tracking/23/10.dat"
 alias shu="cd $MAT_DIR/bookcase-sjk; br"
 alias snip="cd $HOME/Library/Application\ Support/Code/User/snippets"
 alias vc="cd $HOME/.config/nvim"
+alias ws="cd $WORKSPACE_DIR; nv"
 
 # CODE
 alias denv="cd $DENV_DIR"
