@@ -1,8 +1,6 @@
 local options = {
-    cursorline = true,         -- highlight the current line
-    relativenumber = true,     -- set relative numbered lines
-    termguicolors = true,
-    colorscheme = rigel,
+    cursorline = true,         -- highlight cursor line
+    relativenumber = true,     -- relative line number
 }
 
 for k, v in pairs(options) do
