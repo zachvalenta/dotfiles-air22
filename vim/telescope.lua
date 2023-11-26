@@ -9,5 +9,15 @@ require("telescope").setup{
                 results_width = 0.3,
             },
         },
+        vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",     -- don't group matches by file
+            "--with-filename",  -- print filename
+            "--line-number",    -- print line number
+            "--column",         -- show column numbers
+            "--smart-case",     -- search by case only if query has capitalization
+            "--follow",         -- follow symlinks
+        },
     }
 }
