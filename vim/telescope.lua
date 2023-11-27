@@ -1,3 +1,4 @@
+local actions = require "telescope.actions"
 require("telescope").setup{
     defaults = {
         layout_config = {
@@ -19,5 +20,14 @@ require("telescope").setup{
             "--smart-case",     -- search by case only if query has capitalization
             "--follow",         -- follow symlinks
         },
+    },
+    pickers = {
+        find_files = {
+            mappings = {
+                i = {
+                    ["<CR>"] = actions.select_tab_drop,  -- only available on master
+                }
+            }
+        }
     }
 }
