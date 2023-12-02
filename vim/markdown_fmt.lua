@@ -18,3 +18,13 @@ vim.api.nvim_exec([[
       \ highlight mdlist ctermfg=red guifg=#FF0000
   augroup END
 ]], false)
+
+-- list: asterisk
+vim.api.nvim_exec([[
+  augroup markdown_asterisk
+    autocmd!
+    autocmd FileType markdown
+      \ syntax match mdasterisk /^\*\ze\s/ |
+      \ highlight mdasterisk guifg=#800080
+  augroup END
+]], false)
