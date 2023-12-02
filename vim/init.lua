@@ -6,3 +6,4 @@ require "zv.option"
 vim.cmd [[source ~/.config/nvim/lua/zv/plugin.vim]]
 require "zv.telescope"
 require "zv.catppuccin"
+require "zv.markdown_fmt"
