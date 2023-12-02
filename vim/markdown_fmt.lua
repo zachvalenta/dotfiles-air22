@@ -1,20 +1,20 @@
--- comment text
+-- quote: angle bracket + text
 vim.api.nvim_exec([[
-  augroup markdown_comment
+  augroup markdown_quote
     autocmd!
     autocmd FileType markdown
-      \ syntax match mdcomment /^>.*$/ |
-      \ highlight default link mdcomment Italic |
-      \ highlight mdcomment guifg=#f9e2af gui=italic
+      \ syntax match mdquote /^>.*$/ |
+      \ highlight default link mdquote Italic |
+      \ highlight mdquote guifg=#f9e2af gui=italic
   augroup END
 ]], false)
 
--- list text
+-- list: asterisk + text
 vim.api.nvim_exec([[
-  augroup markdown_highlight_asterisk
+  augroup markdown_list
     autocmd!
     autocmd FileType markdown
-      \ syntax match markdownAsterisk /^\*\s.*$/ |
-      \ highlight markdownAsterisk ctermfg=red guifg=#FF0000
+      \ syntax match mdlist /^\*\s.*$/ |
+      \ highlight mdlist ctermfg=red guifg=#FF0000
   augroup END
 ]], false)
