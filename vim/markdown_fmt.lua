@@ -1,30 +1,21 @@
--- quote: angle bracket + text
-vim.api.nvim_exec([[
-  augroup markdown_quote
-    autocmd!
-    autocmd FileType markdown
-      \ syntax match mdquote /^>.*$/ |
-      \ highlight default link mdquote Italic |
-      \ highlight mdquote guifg=#f9e2af gui=italic
-  augroup END
-]], false)
-
--- list: asterisk + text
+-- LIST: ASTERISK + TEXT
+-- alternate colors: eab700, f5e0dc
 vim.api.nvim_exec([[
   augroup markdown_list
     autocmd!
     autocmd FileType markdown
       \ syntax match mdlist /^\*\s.*$/ |
-      \ highlight mdlist ctermfg=red guifg=#FF0000
+      \ highlight mdlist guifg=#eab700
   augroup END
 ]], false)
 
--- list: asterisk
+-- COMMENT: ANGLE BRACKET + TEXT
 vim.api.nvim_exec([[
-  augroup markdown_asterisk
+  augroup markdown_comment
     autocmd!
     autocmd FileType markdown
-      \ syntax match mdasterisk /^\*\ze\s/ |
-      \ highlight mdasterisk guifg=#800080
+      \ syntax match mdquote /^>.*$/ |
+      \ highlight default link mdquote Italic |
+      \ highlight mdquote guifg=#6c7086 gui=italic
   augroup END
 ]], false)
