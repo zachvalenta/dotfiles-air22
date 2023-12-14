@@ -1,9 +1,9 @@
--- core
-require "zv.keymap"
-require "zv.option"
-
--- plugins
+-- PLUGINS
 vim.cmd [[source ~/.config/nvim/lua/zv/plugin.vim]]
 require "zv.telescope"
 require "zv.catppuccin"
-require "zv.markdown_fmt"
+
+-- CORE
+require "zv.option"
+require "zv.keymap"
+require "zv.markdown_fmt"  -- has to follow catppuccin
