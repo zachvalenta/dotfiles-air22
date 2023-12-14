@@ -5,6 +5,7 @@ vim.cmd [[source ~/.config/nvim/lua/zv/plugin.vim]]
 require "zv.telescope"
 require "zv.catppuccin"
 require "zv.mini_indentscope"
+require "zv.mini_autopair"
 
 -- USER CONFIG
 require "zv.option"
