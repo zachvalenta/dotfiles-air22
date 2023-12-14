@@ -8,6 +8,7 @@ alias zp="vsc $HOME/.zprofile"
 alias upzp="source $HOME/.zprofile"
 export MANPAGER=bat
 export EDITOR=nvim
+# export VISUAL="$EDITOR"
 
 WORKSPACE_DIR="$HOME/Documents/zv-tele-workspace"
 DOC_DIR="$HOME/Documents/zvroot"
@@ -153,7 +154,7 @@ function kai(){
 ###
 
 alias gb="git b"  # current branch
-alias gs="git s"  # status
+alias gs="clear; git s"  # status
 alias gd="git d"  # diff working directory and repo
 alias gds="git ds"  # diff staging area and repo
 alias gai="git ai"  # interactive stage
