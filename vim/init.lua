@@ -6,6 +6,7 @@ require "zv.telescope"
 require "zv.catppuccin"
 require "zv.mini_indentscope"
 require "zv.mini_autopair"
+require "zv.mini_map"
 
 -- USER CONFIG
 require "zv.option"
