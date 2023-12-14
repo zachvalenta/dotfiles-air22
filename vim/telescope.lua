@@ -1,6 +1,7 @@
 local actions = require "telescope.actions"
 require("telescope").setup{
     defaults = {
+        path_display = { truncate = 2 },
         layout_config = {
             height = 0.99,
             width = 0.99,
@@ -25,7 +26,7 @@ require("telescope").setup{
         find_files = {
             mappings = {
                 i = {
-                    ["<CR>"] = actions.select_tab_drop,  -- only available on master
+                    ["<CR>"] = actions.select_tab_drop,  -- open selection in new tab
                 }
             }
         }
