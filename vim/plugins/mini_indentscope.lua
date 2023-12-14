@@ -1,1 +1,5 @@
-require('mini.indentscope').setup()
+require('mini.indentscope').setup({
+    draw = {
+        delay = 5,
+    }
+})
