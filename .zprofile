@@ -63,14 +63,25 @@ alias kbs="clear; rg -UA 1 '## now\n\n[\w|\*]' $DOMAINS_DIR/stem"
 # 🚁 NAVIGATION
 ###
 
+# CODE
+alias vc="cd $HOME/.config/nvim/lua/zv"
+alias plug="cd $HOME/.local/share/nvim/plugged"
+alias ws="cd $WORKSPACE_DIR; nv"
+alias dev="cd $DEV_DIR"
+alias denv="cd $DENV_DIR"
+alias bin="cd $DENV_DIR/bin"
+alias dot="cd $DOT_DIR"
+alias brewfr="brew ls --versions > $DENV_DIR/logs/brew/brew-pkgs.txt"
+alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
+alias snip="cd $HOME/Library/Application\ Support/Code/User/snippets"
+
+# za
 alias b="br"
 alias notes="\cd $DOMAINS_DIR; jb"
 alias per="\cd $PER_DIR"
 alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
-alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
 alias mat="cd $MAT_DIR"
-alias dev="cd $DEV_DIR"
 alias py="cd $DEV_DIR/lang/python"
 alias yin="cd $MAT_DIR/yin"
 alias per="cd $PER_DIR"
@@ -80,15 +91,6 @@ alias gr="\cd $PER_DIR/tracking; gds"
 alias gz="nvim $PER_DIR/tracking/23/11.dat; gr; ga; gds"
 alias tm="b $PER_DIR/tracking/23/10.dat"
 alias shu="cd $MAT_DIR/bookcase-sjk; br"
-alias snip="cd $HOME/Library/Application\ Support/Code/User/snippets"
-alias vc="cd $HOME/.config/nvim"
-alias ws="cd $WORKSPACE_DIR; nv"
-
-# CODE
-alias denv="cd $DENV_DIR"
-alias bin="cd $DENV_DIR/bin"
-alias dot="cd $DOT_DIR"
-alias brewfr="brew ls --versions > $DENV_DIR/logs/brew/brew-pkgs.txt"
 
 ###
 # 🛠 UTILS
