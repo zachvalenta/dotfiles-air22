@@ -1,5 +1,5 @@
 -- LOAD PLUGINS
-vim.cmd [[source ~/.config/nvim/lua/zv/plugin.vim]]
+vim.cmd [[source ~/.config/nvim/lua/zv/plugin_load.vim]]
 
 -- CONFIG PLUGINS
 require "zv.telescope"
