@@ -7,6 +7,7 @@ require "zv.catppuccin"
 require "zv.mini_indentscope"
 require "zv.mini_autopair"
 require "zv.mini_map"
+require "zv.treesitter"
 
 -- USER CONFIG
 require "zv.option"
