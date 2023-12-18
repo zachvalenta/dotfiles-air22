@@ -13,6 +13,7 @@ export EDITOR=nvim
 WORKSPACE_DIR="$HOME/Documents/zv-tele-workspace"
 DOC_DIR="$HOME/Documents/zvroot"
 MAT_DIR="$DOC_DIR/materials"
+NOTES_DIR="$DOC_DIR/notes"
 DOMAINS_DIR="$DOC_DIR/notes/domains"
 PER_DIR="$DOC_DIR/personal"
 DEV_DIR="$DOC_DIR/materials/stem/dev"
@@ -90,7 +91,7 @@ alias ren="cd $PER_DIR/people"
 alias gr="\cd $PER_DIR/tracking; gds"
 alias gz="nvim $PER_DIR/tracking/23/11.dat; gr; ga; gds"
 alias tm="b $PER_DIR/tracking/23/10.dat"
-alias shu="cd $MAT_DIR/bookcase-sjk; br"
+alias shu="cd $NOTES_DIR/bookcase; br"
 
 ###
 # 🛠 UTILS
@@ -100,9 +101,9 @@ alias shu="cd $MAT_DIR/bookcase-sjk; br"
 alias lh="l | head"
 function l(){
     if [ "$1" ]; then
-        exa -al --classify --git --git-ignore -I '.git|.DS_Store' "$1" 
+        exa -al --icons --classify --git --git-ignore -I '.git|.DS_Store' "$1" 
     else
-        exa -al --classify --git --git-ignore -I '.git|.DS_Store'
+        exa -al --icons --classify --git --git-ignore -I '.git|.DS_Store'
     fi
 }
 function ll(){
