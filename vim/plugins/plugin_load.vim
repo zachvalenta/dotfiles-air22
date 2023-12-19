@@ -9,4 +9,5 @@ Plug 'echasnovski/mini.map', { 'branch': 'stable'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'stevearc/aerial.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 call plug#end()

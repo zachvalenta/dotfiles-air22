@@ -10,6 +10,7 @@ require "zv.mini_map"
 require "zv.treesitter"
 require "zv.aerial"
 require "zv.devicons"
+require "zv.barbar"
 
 -- USER CONFIG
 require "zv.option"

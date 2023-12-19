@@ -22,13 +22,13 @@ require("telescope").setup{
             "--follow",         -- follow symlinks
         },
     },
-    pickers = {
-        find_files = {
-            mappings = {
-                i = {
-                    ["<CR>"] = actions.select_tab_drop,  -- open selection in new tab
-                }
-            }
-        }
-    }
+    -- pickers = {
+    --     find_files = {
+    --         mappings = {
+    --             i = {
+    --                 ["<CR>"] = actions.select_tab_drop,  -- open selection in new tab
+    --             }
+    --         }
+    --     }
+    -- }
 }
