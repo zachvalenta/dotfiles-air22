@@ -9,6 +9,7 @@ require "zv.mini_autopair"
 require "zv.mini_map"
 require "zv.treesitter"
 require "zv.aerial"
+require "zv.devicons"
 
 -- USER CONFIG
 require "zv.option"
