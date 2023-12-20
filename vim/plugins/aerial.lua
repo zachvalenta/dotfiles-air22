@@ -2,7 +2,7 @@ require("aerial").setup({
     open_automatic = true,
     layout = {
         default_direction = "prefer_left",
-        width = 0.15,
+        width = 0.20,
     },
     -- optionally use on_attach to set keymaps when aerial has attached to a buffer
     on_attach = function(bufnr)
