@@ -11,6 +11,7 @@ require "zv.treesitter"
 require "zv.aerial"
 require "zv.devicons"
 require "zv.barbar"
+require "zv.lsp"
 
 -- USER CONFIG
 require "zv.option"
