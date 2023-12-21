@@ -109,27 +109,27 @@ function l(){
 }
 function ll(){
     if [ "$1" ]; then
-        exa --classify --git -I '.git|.DS_Store|.localized' "$1"
+        exa --icons --classify --git -I '.git|.DS_Store|.localized' "$1"
     else
-        exa --classify --git -I '.git|.DS_Store|.localized'
+        exa --icons --classify --git -I '.git|.DS_Store|.localized'
     fi
 }
 function t(){
     # t <depth> <dir>
     if [ $# -eq 2 ]; then
-        exa -al --tree --level="$1" --git-ignore -I '.git|.DS_Store' "$2"
+        exa -al --icons --tree --level="$1" --git-ignore -I '.git|.DS_Store' "$2"
     # t <depth>
     elif [ $# -eq 1 ]
     then
         # break on dir prepended w/ digits e.g. logs/2019
         if [[ "$1" =~ ^-?[0-9]+[.,]?[0-9]*$ ]]; then  # break on dir prepended w/ digits e.g. `logs/2019`
-            exa -al --tree --level="$1" --git-ignore -I '.git|.DS_Store'
+            exa -al --icons --tree --level="$1" --git-ignore -I '.git|.DS_Store'
         else
-            exa -al --tree --git-ignore -I '.git|.DS_Store' "$1"
+            exa -al --icons --tree --git-ignore -I '.git|.DS_Store' "$1"
         fi
     # t
     else
-        exa -al --tree --git-ignore -I '.git|.DS_Store'
+        exa -al --icons --tree --git-ignore -I '.git|.DS_Store'
     fi
 }
 
