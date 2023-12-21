@@ -8,24 +8,13 @@ alias zp="vsc $HOME/.zprofile"
 alias upzp="source $HOME/.zprofile"
 export MANPAGER=bat
 export EDITOR=nvim
-# export VISUAL="$EDITOR"
-
-WORKSPACE_DIR="$HOME/Documents/zv-tele-workspace"
-DOC_DIR="$HOME/Documents/zvroot"
-MAT_DIR="$DOC_DIR/materials"
-NOTES_DIR="$DOC_DIR/notes"
-DOMAINS_DIR="$DOC_DIR/notes/domains"
-PER_DIR="$DOC_DIR/personal"
-DEV_DIR="$DOC_DIR/materials/stem/dev"
-DENV_DIR="$DEV_DIR/os/denv"
-DOT_DIR="$DENV_DIR/dotfiles"
-
+export PYTHONDONTWRITEBYTECODE=1
 export CLICOLOR=1
 export EXA_COLORS="ga=38;5;213:gm=32:*.py=38;5;114:Dockerfile=38;5;074;1:docker-compose.*=38;5;074;1:*.pdf=38;5;208:*.txt=38;5;244:*.html=38;5;137;1:*.env*=31;0;01:*.sql*=38;5;28"
 export LSCOLORS=gxfxcxdxbxegedabaggagx
 export RIPGREP_CONFIG_PATH="$DOT_DIR/.ripgreprc"
 
-# powerline-shell
+# POWERLINE-SHELL
 function powerline_precmd() {
     PS1="$(powerline-shell --shell zsh $?)"
 }
@@ -40,6 +29,24 @@ function install_powerline_precmd() {
 if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
 fi
+
+###
+# 🗂 FS
+###
+
+# MACHINE-SPECIFIC
+DOC_DIR="$HOME/Documents"
+DENV_DIR="$DOC_DIR/denv"
+DOT_DIR="$DENV_DIR/dotfiles"
+TELESCOPE_WORKSPACE_DIR="$HOME/Documents/telescope-workspace"
+
+# ME
+ZV_DIR="$HOME/Documents/zv"
+MAT_DIR="$ZV_DIR/materials"
+DEV_DIR="$ZV_DIR/materials/dev"
+NOTES_DIR="$ZV_DIR/notes"
+DOMAINS_DIR="$ZV_DIR/notes/domains"
+PER_DIR="$ZV_DIR/personal"
 
 ###
 # 🏔 WORKFLOW
@@ -67,7 +74,7 @@ alias kbs="clear; rg -UA 1 '## now\n\n[\w|\*]' $DOMAINS_DIR/stem"
 # CODE
 alias vc="cd $HOME/.config/nvim/lua/zv"
 alias plug="cd $HOME/.local/share/nvim/plugged"
-alias ws="cd $WORKSPACE_DIR; nv"
+alias ws="cd $TELESCOPE_WORKSPACE_DIR; nv"
 alias dev="cd $DEV_DIR"
 alias denv="cd $DENV_DIR"
 alias bin="cd $DENV_DIR/bin"
@@ -76,27 +83,40 @@ alias brewfr="brew ls --versions > $DENV_DIR/logs/brew/brew-pkgs.txt"
 alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
 alias snip="cd $HOME/Library/Application\ Support/Code/User/snippets"
 
-# za
-alias b="br"
-alias notes="\cd $DOMAINS_DIR; jb"
-alias per="\cd $PER_DIR"
+# ROOT
 alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
-alias jbb="jb | bat"
+alias zv="cd $ZV_DIR"
+
+# DOCS
+alias notes="\cd $DOMAINS_DIR; jb"
+alias shu="cd $NOTES_DIR/bookcase; br"
 alias mat="cd $MAT_DIR"
-alias py="cd $DEV_DIR/lang/python"
-alias yin="cd $MAT_DIR/yin"
-alias per="cd $PER_DIR"
+alias yin="cd $ZV_DIR/yin"
+alias per="\cd $PER_DIR"
 alias logs="cd $PER_DIR/logs"
 alias ren="cd $PER_DIR/people"
-alias gr="\cd $PER_DIR/tracking; gds"
-alias gz="nvim $PER_DIR/tracking/23/11.dat; gr; ga; gds"
-alias tm="b $PER_DIR/tracking/23/10.dat"
-alias shu="cd $NOTES_DIR/bookcase; br"
 
 ###
 # 🛠 UTILS
 ###
+
+alias b="br"
+alias bpy="bpython"
+alias cd='function cdl(){ cd "$1"; pwd; l;}; cdl'
+alias cppath='pwd | pbcopy'
+alias gr="\cd $PER_DIR/tracking; gds"
+alias gz="nvim $PER_DIR/tracking/23/11.dat; gr; ga; gds"
+alias jbb="jb | bat"
+alias m="make"
+alias mkd='function mkd(){ mkdir "$1"; cd "$1";}; mkd'
+alias nv="nvim"
+alias o="open"
+alias oo="open ."
+alias v="vimv"
+alias vsc="open -a 'Visual Studio Code'"
+alias vscfr="ls ~/.vscode/extensions/ > $DOT_DIR/vs-code/pkg-vsc.txt"
+alias tm="b $PER_DIR/tracking/23/10.dat"
 
 # EXA
 alias lh="l | head"
@@ -133,19 +153,6 @@ function t(){
     fi
 }
 
-alias cd='function cdl(){ cd "$1"; pwd; l;}; cdl'
-alias cppath='pwd | pbcopy'
-alias m="make"
-alias mkd='function mkd(){ mkdir "$1"; cd "$1";}; mkd'
-alias nv="nvim"
-alias o="open"
-alias oo="open ."
-alias v="vimv"
-alias vsc="open -a 'Visual Studio Code'"
-alias vscfr="ls ~/.vscode/extensions/ > $DOT_DIR/vs-code/pkg-vsc.txt"
-export PYTHONDONTWRITEBYTECODE=1
-alias bpy="bpython"
-
 function kai(){
     fname="$1.md";
     cwd="$(pwd)";
@@ -157,14 +164,14 @@ function kai(){
 # 💾  GIT
 ###
 
-alias gb="git b"  # current branch
+alias gb="git b"         # current branch
 alias gs="clear; git s"  # status
-alias gd="git d"  # diff working directory and repo
-alias gds="git ds"  # diff staging area and repo
-alias gai="git ai"  # interactive stage
-alias ga="git add -A"
-alias gl="git l"  # prettified log of previous 10 commits
-alias gc="git c"  # commit
+alias gd="git d"         # diff working directory and repo
+alias gds="git ds"       # diff staging area and repo
+alias gai="git ai"       # interactive stage
+alias ga="git add -A"    # add all
+alias gl="git l"         # prettified log of previous 10 commits
+alias gc="git c"         # commit
 
 ###
 # 🛣 PATH
