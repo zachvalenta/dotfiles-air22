@@ -11,7 +11,6 @@ TELESCOPE_WORKSPACE_DIR="$HOME/Documents/telescope-workspace"
 # ME
 ZV_DIR="$HOME/Documents/zv"
 MAT_DIR="$ZV_DIR/materials"
-DEV_DIR="$ZV_DIR/materials/dev"
 NOTES_DIR="$ZV_DIR/notes"
 DOMAINS_DIR="$ZV_DIR/notes/domains"
 PER_DIR="$ZV_DIR/personal"
@@ -75,7 +74,7 @@ alias kbs="clear; rg -UA 1 '## now\n\n[\w|\*]' $DOMAINS_DIR/stem"
 alias vc="cd $HOME/.config/nvim/lua/zv"
 alias plug="cd $HOME/.local/share/nvim/plugged"
 alias ws="cd $TELESCOPE_WORKSPACE_DIR; nv"
-alias dev="cd $DEV_DIR"
+alias sw="cd $MAT_DIR/sw"
 alias denv="cd $DENV_DIR"
 alias bin="cd $DENV_DIR/bin"
 alias dot="cd $DOT_DIR"
@@ -91,10 +90,11 @@ alias zv="cd $ZV_DIR"
 # DOCS
 alias notes="\cd $DOMAINS_DIR; jb"
 alias shu="cd $NOTES_DIR/bookcase; br"
-alias mat="cd $MAT_DIR"
+alias mat="cd $MAT_DIR; t 2"
 alias yin="cd $ZV_DIR/yin"
 alias per="\cd $PER_DIR"
 alias logs="cd $PER_DIR/logs"
+alias ml="cd $MAT_DIR/music/za/music-library; nv README.md"
 alias ren="cd $PER_DIR/people"
 
 ###
@@ -105,6 +105,7 @@ alias b="br"
 alias bpy="bpython"
 alias cd='function cdl(){ cd "$1"; pwd; l;}; cdl'
 alias cppath='pwd | pbcopy'
+alias ic="imgcat"
 alias gr="\cd $PER_DIR/tracking; gds"
 alias gz="nvim $PER_DIR/tracking/23/11.dat; gr; ga; gds"
 alias jbb="jb | bat"
@@ -190,4 +191,3 @@ export PATH="$PATH:/Users/zach/.local/bin"
 
 # my bin
 export PATH="$DENV_DIR/bin:${PATH}"
-
