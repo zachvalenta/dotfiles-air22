@@ -1,4 +1,22 @@
 ###
+# 🗂 FS
+###
+
+# MACHINE-SPECIFIC
+DOC_DIR="$HOME/Documents"
+DENV_DIR="$DOC_DIR/denv"
+DOT_DIR="$DENV_DIR/dotfiles"
+TELESCOPE_WORKSPACE_DIR="$HOME/Documents/telescope-workspace"
+
+# ME
+ZV_DIR="$HOME/Documents/zv"
+MAT_DIR="$ZV_DIR/materials"
+DEV_DIR="$ZV_DIR/materials/dev"
+NOTES_DIR="$ZV_DIR/notes"
+DOMAINS_DIR="$ZV_DIR/notes/domains"
+PER_DIR="$ZV_DIR/personal"
+
+###
 # 🌇  PROFILE
 ###
 
@@ -29,24 +47,6 @@ function install_powerline_precmd() {
 if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
 fi
-
-###
-# 🗂 FS
-###
-
-# MACHINE-SPECIFIC
-DOC_DIR="$HOME/Documents"
-DENV_DIR="$DOC_DIR/denv"
-DOT_DIR="$DENV_DIR/dotfiles"
-TELESCOPE_WORKSPACE_DIR="$HOME/Documents/telescope-workspace"
-
-# ME
-ZV_DIR="$HOME/Documents/zv"
-MAT_DIR="$ZV_DIR/materials"
-DEV_DIR="$ZV_DIR/materials/dev"
-NOTES_DIR="$ZV_DIR/notes"
-DOMAINS_DIR="$ZV_DIR/notes/domains"
-PER_DIR="$ZV_DIR/personal"
 
 ###
 # 🏔 WORKFLOW
