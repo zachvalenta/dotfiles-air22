@@ -14,6 +14,8 @@ MAT_DIR="$ZV_DIR/materials"
 NOTES_DIR="$ZV_DIR/notes"
 DOMAINS_DIR="$ZV_DIR/notes/domains"
 PER_DIR="$ZV_DIR/personal"
+KB_REGEX_NOW="## now\n\n[\w|\*]"
+KB_REGEX_NEXT="## next\n\n[\w|\*]"
 
 ###
 # 🌇  PROFILE
@@ -52,19 +54,10 @@ fi
 ###
 
 alias wf="rg 'WF' $HOME/.zprofile -A18 -B5"
-
-# 🌆
-# alias shui="bat $CODE_DIR/lang/html-css/content/about/quotes.md"
-# function nian(){
-    # year="$1-year.md";
-    # path="$HOME/Desktop/zvmac/personal/calendar/logs/yearly";
-    # bat "$path/$year";
-# }
-
-# 🌇
-alias kba="clear; rg -UA 2 '## now\n\n[\w|\*]' $DOMAINS_DIR/art"
-alias kbh="clear; rg -UA 1 '## now\n\n[\w|\*]' $DOMAINS_DIR/humanities"
-alias kbs="clear; rg -UA 1 '## now\n\n[\w|\*]' $DOMAINS_DIR/stem"
+alias sch="clear; bat $PER_DIR/people/schedule.md"
+alias kb="clear; rg -UA 1 '$KB_REGEX_NOW' $DOMAINS_DIR; rg -UA 1 '$KB_REGEX_NOW' $PER_DIR/people"
+alias kbn="clear; rg -UA 1 '$KB_REGEX_NEXT' $DOMAINS_DIR; rg -UA 1 '$KB_REGEX_NEXT' $PER_DIR/people"
+alias wen="rg -A 5 KATA $DOMAINS_DIR/art/aesthetics.md"
 
 ###
 # 🚁 NAVIGATION
@@ -75,6 +68,7 @@ alias vc="cd $HOME/.config/nvim/lua/zv"
 alias plug="cd $HOME/.local/share/nvim/plugged"
 alias ws="cd $TELESCOPE_WORKSPACE_DIR; nv"
 alias sw="cd $MAT_DIR/sw"
+alias ms="\cd $MAT_DIR/sw/hiring; broot"
 alias denv="cd $DENV_DIR"
 alias bin="cd $DENV_DIR/bin"
 alias dot="cd $DOT_DIR"
@@ -92,7 +86,7 @@ alias notes="\cd $DOMAINS_DIR; jb"
 alias shu="cd $NOTES_DIR/bookcase; br"
 alias mat="cd $MAT_DIR; t 2"
 alias yin="cd $ZV_DIR/yin"
-alias per="\cd $PER_DIR"
+alias per="cd $PER_DIR"
 alias logs="cd $PER_DIR/logs"
 alias ml="cd $MAT_DIR/music/za/music-library; nv README.md"
 alias ren="cd $PER_DIR/people"
