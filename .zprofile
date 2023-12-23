@@ -11,8 +11,8 @@ TELESCOPE_WORKSPACE_DIR="$HOME/Documents/telescope-workspace"
 # ME
 ZV_DIR="$HOME/Documents/zv"
 MAT_DIR="$ZV_DIR/materials"
-NOTES_DIR="$ZV_DIR/notes"
 DOMAINS_DIR="$ZV_DIR/notes/domains"
+SW_DIR="$ZV_DIR/notes/sw"
 PER_DIR="$ZV_DIR/personal"
 TRACK_DIR="$ZV_DIR/personal/tracking"
 KB_REGEX_NOW="## now\n\n[\w|\*]"
@@ -56,10 +56,13 @@ fi
 
 alias wf="rg 'WF' $HOME/.zprofile -A18 -B5"
 alias sch="clear; bat $PER_DIR/people/schedule.md"
-alias kb="clear; rg -UA 1 '$KB_REGEX_NOW' $DOMAINS_DIR; rg -UA 1 '$KB_REGEX_NOW' $PER_DIR/people"
-alias kbn="clear; rg -UA 1 '$KB_REGEX_NEXT' $DOMAINS_DIR; rg -UA 1 '$KB_REGEX_NEXT' $PER_DIR/people"
+
+alias kb="clear; rg -UA 1 '$KB_REGEX_NOW' $DOMAINS_DIR; rg -UA 1 '$KB_REGEX_NOW' $SW_DIR; rg -UA 1 '$KB_REGEX_NOW' $PER_DIR/people"
+alias kbn="clear; rg -UA 2 '$KB_REGEX_NEXT' $DOMAINS_DIR; rg -UA 1 '$KB_REGEX_NEXT' $SW_DIR; rg -UA 1 '$KB_REGEX_NEXT' $PER_DIR/people"
 alias wen="rg -A 5 KATA $DOMAINS_DIR/art/aesthetics.md"
+alias qt="clear; bat $MAT_DIR/sw/lang/html-css/content/about/quotes.md"
 alias tz="clear; label "orangered" "WEIGHT"; cat $TRACK_DIR/weight.dat | asciigraph -h 10 -w 120 red 2>/dev/null"
+alias tm="bat $TRACK_DIR/23/12.dat"  # why is this opening broot?
 
 ###
 # 🚁 NAVIGATION
@@ -69,7 +72,6 @@ alias tz="clear; label "orangered" "WEIGHT"; cat $TRACK_DIR/weight.dat | asciigr
 alias vc="cd $HOME/.config/nvim/lua/zv"
 alias plug="cd $HOME/.local/share/nvim/plugged"
 alias ws="cd $TELESCOPE_WORKSPACE_DIR; nv"
-alias sw="cd $MAT_DIR/sw"
 alias ms="\cd $MAT_DIR/sw/hiring; broot"
 alias denv="cd $DENV_DIR"
 alias bin="cd $DENV_DIR/bin"
@@ -84,8 +86,9 @@ alias desk="cd $HOME/Desktop"
 alias zv="cd $ZV_DIR"
 
 # DOCS
-alias notes="\cd $DOMAINS_DIR; jb"
-alias shu="cd $NOTES_DIR/bookcase; br"
+alias dom="\cd $DOMAINS_DIR; jbdom"
+alias sw="\cd $SW_DIR; jbsw"
+alias shu="cd $ZV_DIR/notes/bookcase; br"
 alias mat="cd $MAT_DIR; t 2"
 alias yin="cd $ZV_DIR/yin"
 alias per="cd $PER_DIR"
@@ -104,7 +107,6 @@ alias cppath='pwd | pbcopy'
 alias ic="imgcat"
 alias gr="\cd $PER_DIR/tracking; gds"
 alias gz="nvim $PER_DIR/tracking/23/11.dat; gr; ga; gds"
-alias jbb="jb | bat"
 alias m="make"
 alias mkd='function mkd(){ mkdir "$1"; cd "$1";}; mkd'
 alias nv="nvim"
@@ -177,6 +179,9 @@ alias gai="git ai"       # interactive stage
 alias ga="git add -A"    # add all
 alias gl="git l"         # prettified log of previous 10 commits
 alias gc="git c"         # commit
+alias gca="git c --amend"  # commit amend
+alias gcne="git c --amend --no-edit"  # commit amend
+alias gshow="git log --format=%B -n 1"  # msg description for commit
 
 ###
 # 🛣 PATH
