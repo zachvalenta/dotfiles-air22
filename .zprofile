@@ -14,6 +14,7 @@ MAT_DIR="$ZV_DIR/materials"
 NOTES_DIR="$ZV_DIR/notes"
 DOMAINS_DIR="$ZV_DIR/notes/domains"
 PER_DIR="$ZV_DIR/personal"
+TRACK_DIR="$ZV_DIR/personal/tracking"
 KB_REGEX_NOW="## now\n\n[\w|\*]"
 KB_REGEX_NEXT="## next\n\n[\w|\*]"
 
@@ -58,6 +59,7 @@ alias sch="clear; bat $PER_DIR/people/schedule.md"
 alias kb="clear; rg -UA 1 '$KB_REGEX_NOW' $DOMAINS_DIR; rg -UA 1 '$KB_REGEX_NOW' $PER_DIR/people"
 alias kbn="clear; rg -UA 1 '$KB_REGEX_NEXT' $DOMAINS_DIR; rg -UA 1 '$KB_REGEX_NEXT' $PER_DIR/people"
 alias wen="rg -A 5 KATA $DOMAINS_DIR/art/aesthetics.md"
+alias tz="clear; label "orangered" "WEIGHT"; cat $TRACK_DIR/weight.dat | asciigraph -h 10 -w 120 red 2>/dev/null"
 
 ###
 # 🚁 NAVIGATION
@@ -155,6 +157,14 @@ function kai(){
     open "$cwd/$fname";
 }
 
+function label(){
+    update_bg="$1"
+    update_fg="$(pastel textcolor "$update_bg")"
+    echo -en "\n"
+    pastel paint "$update_fg" --on "$update_bg" "$2"
+    echo -en "\n"
+}
+
 ###
 # 💾  GIT
 ###
@@ -180,8 +190,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
 fi
 
-# pipx
-export PATH="$PATH:/Users/zach/.local/bin"
-
-# my bin
-export PATH="$DENV_DIR/bin:${PATH}"
+export PATH="$PATH:/Users/zach/.local/bin"  # pipx
+export PATH="$DENV_DIR/bin:${PATH}"         # my bin
+export PATH=$PATH:$HOME/go/bin              # golang
