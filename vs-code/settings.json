@@ -2,7 +2,7 @@
     "editor.acceptSuggestionOnEnter": "off",
     "editor.accessibilitySupport": "off",
     "editor.detectIndentation": false,
-    "editor.fontSize": 12,
+    "editor.fontSize": 11,
     "editor.lineNumbers": "relative",
     "editor.wordWrap": "on",
     "extensions.ignoreRecommendations": true,
@@ -35,6 +35,6 @@
         "activityBar.activeBorder": "#8A2BE2"
     },
     "workbench.editor.openPositioning": "last",
-    "workbench.colorTheme": "Noctis Obscuro",
+    "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.startupEditor": "newUntitledFile"
 }
