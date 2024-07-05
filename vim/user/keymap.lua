@@ -9,18 +9,20 @@ vim.g.maplocalleader = " "
 -- TELESCOPE
 keymap("n", "<leader>f", "<cmd>Telescope find_files follow=true<cr>",  opts)
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr> ",  opts)
-keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>",  opts)
+-- keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>",  opts)
+keymap("n", "<leader>r", "<cmd>Telescope lsp_document_symbols<cr>", opts)
+keymap("n", "<leader>t", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
 
 -- MINI MAP
-vim.keymap.set('n', '<Leader>mc', MiniMap.close)
-vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus)
-vim.keymap.set('n', '<Leader>mo', MiniMap.open)
-vim.keymap.set('n', '<Leader>mr', MiniMap.refresh)
-vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side)
-vim.keymap.set('n', '<Leader>mt', MiniMap.toggle)
+-- vim.keymap.set('n', '<Leader>mc', MiniMap.close)
+-- vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus)
+-- vim.keymap.set('n', '<Leader>mo', MiniMap.open)
+-- vim.keymap.set('n', '<Leader>mr', MiniMap.refresh)
+-- vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side)
+-- vim.keymap.set('n', '<Leader>mt', MiniMap.toggle)
 
 -- AERIAL
-vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+vim.keymap.set("n", "<leader>b", "<cmd>AerialToggle!<CR>")
 
 -- BARBAR
 vim.keymap.set("n", "<leader>h", "<cmd>BufferPrevious<CR>")
