@@ -1,0 +1,21 @@
+{
+  "settingsVersion": "2.1.2",
+  "exclusionRules": [
+    {
+      "passKeys": "h,j,k,l,m",
+      "pattern": "https?://duckduckgo.com/*"
+    },
+    {
+      "passKeys": "f,j,k,l,m,t,N,1,2,3,4,5,6,7,8,9,?, <, >",
+      "pattern": "https?://www.youtube.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https://*.google.com/*"
+    },
+    {
+      "passKeys": "b,t",
+      "pattern": "https?://github.com/*"
+    }
+  ]
+}
