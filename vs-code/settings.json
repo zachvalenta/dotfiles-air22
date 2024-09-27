@@ -30,7 +30,6 @@
     "vim.debug.silent": true,
     "vim.useSystemClipboard": true,
     "window.restoreWindows": "one",
-    "window.zoomLevel": 1,
     "workbench.colorCustomizations": {
         "activityBar.activeBorder": "#8A2BE2"
     },
