@@ -14,5 +14,18 @@
 			"$2",
 			"```"
 		]
+	},
+	"filetree": {
+		"prefix": "mft",
+		"description": "file tree",
+		"body": [
+            "```sh",
+            "root_file.txt",
+            "├── dir",
+            "│   └── file_1.txt",
+            "│   └── file_2.txt",
+            "```",
+            ""
+        ]
 	}
 }
