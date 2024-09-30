@@ -30,8 +30,8 @@ export MANPAGER=bat
 export EDITOR=nvim
 export PYTHONDONTWRITEBYTECODE=1
 export CLICOLOR=1
-export EXA_COLORS="ga=38;5;213:gm=32:*.py=38;5;114:Dockerfile=38;5;074;1:docker-compose.*=38;5;074;1:*.pdf=38;5;208:*.txt=38;5;244:*.html=38;5;137;1:*.env*=31;0;01:*.sql*=38;5;28"
 export RIPGREP_CONFIG_PATH="$DOT_DIR/cli/.ripgreprc"
+EZA_IGNORE=".DS_Store|.git|.localized|*.code-workspace|.venv"
 
 # POWERLINE-SHELL
 function powerline_precmd() {
@@ -110,7 +110,7 @@ function timer(){
 alias vc="cd $HOME/.config/nvim/lua/zv"
 alias plug="cd $HOME/.local/share/nvim/plugged"
 alias ws="cd $TELESCOPE_WORKSPACE_DIR; nv"
-alias ms="\cd $MAT_DIR/sw/hiring; broot"
+alias ms="\cd $MAT_DIR/sw/hiring"
 alias denv="cd $DENV_DIR"
 alias bin="cd $DENV_DIR/bin"
 alias dot="cd $DOT_DIR"
@@ -157,34 +157,27 @@ alias tm="b $PER_DIR/tracking/23/10.dat"
 alias lh="l | head"
 function l(){
     if [ "$1" ]; then
-        exa -al --icons --classify --git --git-ignore -I '.git|.DS_Store' "$1" 
+        eza -al --icons --git --git-ignore -I $EZA_IGNORE "$1"
     else
-        exa -al --icons --classify --git --git-ignore -I '.git|.DS_Store'
+        eza -al --icons --git --git-ignore -I $EZA_IGNORE
     fi
 }
-function ll(){
-    if [ "$1" ]; then
-        exa --icons --classify --git -I '.git|.DS_Store|.localized' "$1"
-    else
-        exa --icons --classify --git -I '.git|.DS_Store|.localized'
-    fi
-}
+
 function t(){
-    # t <depth> <dir>
     if [ $# -eq 2 ]; then
-        exa -al --icons --tree --level="$1" --git-ignore -I '.git|.DS_Store' "$2"
+        eza -al --icons --tree --git-ignore -I $EZA_IGNORE --level="$1" "$2"
     # t <depth>
     elif [ $# -eq 1 ]
     then
         # break on dir prepended w/ digits e.g. logs/2019
         if [[ "$1" =~ ^-?[0-9]+[.,]?[0-9]*$ ]]; then  # break on dir prepended w/ digits e.g. `logs/2019`
-            exa -al --icons --tree --level="$1" --git-ignore -I '.git|.DS_Store'
+            eza -al --icons --tree --git-ignore -I $EZA_IGNORE --level="$1"
         else
-            exa -al --icons --tree --git-ignore -I '.git|.DS_Store' "$1"
+            eza -al --icons --tree --git-ignore -I $EZA_IGNORE "$1"
         fi
     # t
     else
-        exa -al --icons --tree --git-ignore -I '.git|.DS_Store'
+        eza -al --icons --tree --git-ignore -I $EZA_IGNORE
     fi
 }
 
