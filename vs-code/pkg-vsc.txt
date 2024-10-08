@@ -1,3 +1,5 @@
-liviuschera.noctis-10.40.0
+catppuccin.catppuccin-vsc-3.3.0
+gera2ld.markmap-vscode-0.0.17
+liviuschera.noctis-10.43.3
 vscodevim.vim-1.24.3
-yzhang.markdown-all-in-one-3.5.0
+yzhang.markdown-all-in-one-3.5.1
