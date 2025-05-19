@@ -126,7 +126,7 @@ alias zv="cd $ZV_DIR"
 # DOCS
 alias dom="\cd $DOMAINS_DIR; jbdom"
 alias sw="\cd $SW_DIR; jbsw"
-alias shu="cd $ZV_DIR/notes/bookcase; br"
+alias shu="cd $ZV_DIR/notes/bookcase"
 alias mat="cd $MAT_DIR; t 2"
 alias yin="cd $ZV_DIR/yin"
 alias per="cd $PER_DIR"
@@ -143,6 +143,7 @@ alias bpy="bpython"
 alias cd='function cdl(){ cd "$1"; pwd; l;}; cdl'
 alias cppath='pwd | pbcopy'
 alias ic="imgcat"
+alias jl="jless -r"
 alias m="make"
 alias mkd='function mkd(){ mkdir "$1"; cd "$1";}; mkd'
 alias nv="nvim"
@@ -152,6 +153,8 @@ alias v="vimv"
 alias vsc="open -a 'Visual Studio Code'"
 alias vscfr="ls ~/.vscode/extensions/ > $DOT_DIR/vs-code/pkg-vsc.txt"
 alias tm="b $PER_DIR/tracking/23/10.dat"
+alias ytd='yt-dlp "$1"'
+alias ytdv='yt-dlp --format mp4 "$1"'
 
 # EXA
 alias lh="l | head"
@@ -218,6 +221,7 @@ alias gshow="git log --format=%B -n 1"  # msg description for commit
 
 # Homebrew - set path/manpath
 eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/multiverse-neon.omp.json)"
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
