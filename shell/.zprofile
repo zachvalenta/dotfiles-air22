@@ -158,31 +158,57 @@ alias ytdv='yt-dlp --format mp4 "$1"'
 
 # EXA
 alias lh="l | head"
+###
+# EZA
+###
+
+# default
+function sl(){
+    if [ "$1" ]; then
+        eza --icons --no-quotes --no-user --no-time --no-filesize --no-permissions --git --git-ignore -I $EZA_IGNORE "$1"
+    else
+        eza --icons --no-quotes --no-user --no-time --no-filesize --no-permissions --git --git-ignore -I $EZA_IGNORE
+    fi
+}
+# dir/file sizes
 function l(){
     if [ "$1" ]; then
-        eza -al --icons --git --git-ignore -I $EZA_IGNORE "$1"
+        eza -al --icons --total-size --no-quotes --no-user --no-time --no-permissions --git --git-ignore -I $EZA_IGNORE "$1"
     else
-        eza -al --icons --git --git-ignore -I $EZA_IGNORE
+        eza -al --icons --total-size --no-quotes --no-user --no-time --no-permissions --git --git-ignore -I $EZA_IGNORE
     fi
+}
+# perms / user / timestamp + show gitignore
+function ll(){
+    if [ "$1" ]; then
+        eza -alo --icons --no-quotes --git --git-ignore -I $EZA_IGNORE "$1"
+    else
+        eza -alo --icons --no-quotes --git --git-ignore -I $EZA_IGNORE
+    fi
+}
+
+function tt(){
+    eza -al --icons --tree --no-quotes --no-user --no-time -I $EZA_IGNORE
 }
 
 function t(){
     if [ $# -eq 2 ]; then
-        eza -al --icons --tree --git-ignore -I $EZA_IGNORE --level="$1" "$2"
+        eza -al --icons --tree --no-quotes --no-user --no-time --git-ignore -I $EZA_IGNORE --level="$1" "$2"
     # t <depth>
     elif [ $# -eq 1 ]
     then
         # break on dir prepended w/ digits e.g. logs/2019
         if [[ "$1" =~ ^-?[0-9]+[.,]?[0-9]*$ ]]; then  # break on dir prepended w/ digits e.g. `logs/2019`
-            eza -al --icons --tree --git-ignore -I $EZA_IGNORE --level="$1"
+            eza -al --icons --tree --no-quotes --no-user --no-time --git-ignore -I $EZA_IGNORE --level="$1"
         else
-            eza -al --icons --tree --git-ignore -I $EZA_IGNORE "$1"
+            eza -al --icons --tree --no-quotes --no-user --no-time --git-ignore -I $EZA_IGNORE "$1"
         fi
     # t
     else
-        eza -al --icons --tree --git-ignore -I $EZA_IGNORE
+        eza -al --icons --tree --no-quotes --no-user --no-time --git-ignore -I $EZA_IGNORE
     fi
 }
+
 
 function kai(){
     fname="$1.md";
