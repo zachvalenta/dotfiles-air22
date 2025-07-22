@@ -156,8 +156,6 @@ alias tm="b $PER_DIR/tracking/23/10.dat"
 alias ytd='yt-dlp "$1"'
 alias ytdv='yt-dlp --format mp4 "$1"'
 
-# EXA
-alias lh="l | head"
 ###
 # EZA
 ###
@@ -225,10 +223,20 @@ function label(){
     echo -en "\n"
 }
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 ###
 # 💾  GIT
 ###
 
+alias lg="lazygit"
 alias gb="git b"         # current branch
 alias gs="clear; git s"  # status
 alias gd="git d"         # diff working directory and repo
