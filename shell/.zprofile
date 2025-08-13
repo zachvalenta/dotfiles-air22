@@ -153,6 +153,7 @@ alias v="vimv"
 alias vsc="open -a 'Visual Studio Code'"
 alias vscfr="ls ~/.vscode/extensions/ > $DOT_DIR/vs-code/pkg-vsc.txt"
 alias tm="b $PER_DIR/tracking/23/10.dat"
+# alias wy='bash -c "tv text | while read -r line; do code -g \"\$line\"; done"'
 alias ytd='yt-dlp "$1"'
 alias ytdv='yt-dlp --format mp4 "$1"'
 
@@ -231,6 +232,18 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+###
+# 🎹 MUSIC
+###
+
+alias mh="rg -UA 6 'alias mh' $DOT_DIR/shell/.zprofile"
+alias hx="rg -A 16 -B 1 '## chords' $DOMAINS_DIR/art/music/theory.md | glow -"
+alias int="rg -UNI '## intervals' -A 15 -B 1 $DOMAINS_DIR/art/music | glow -"
+# alias yj="rg -UNI '## scales' -A 7 -B 1 $DOMAINS_DIR/art/music | glow -"
+# alias clef="imgcat $MAT_DIR/music/theory/clef.png"
+# alias keys="imgcat $MAT_DIR/music/theory/30-keys.jpg; imgcat $MAT_DIR/music/theory/circle-of-fifths.png"
+# alias modes="rg -UNI '## modes\n' -A 6 -B 1 $DOMAINS_DIR/art/music | glow -"
 
 ###
 # 💾  GIT
