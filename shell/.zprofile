@@ -31,7 +31,7 @@ export EDITOR=nvim
 export PYTHONDONTWRITEBYTECODE=1
 export CLICOLOR=1
 export RIPGREP_CONFIG_PATH="$DOT_DIR/cli/.ripgreprc"
-EZA_IGNORE=".DS_Store|.git|.localized|*.code-workspace|.venv"
+EZA_IGNORE=".DS_Store|.git|.localized|.venv|*.code-workspace|.ruff_cache"
 
 # POWERLINE-SHELL
 function powerline_precmd() {
@@ -140,7 +140,7 @@ alias ren="cd $PER_DIR/people"
 
 alias b="br"
 alias bpy="bpython"
-alias cd='function cdl(){ cd "$1"; pwd; l;}; cdl'
+alias cd='function cdl(){ cd "$1"; pwd; sl;}; cdl'
 alias cppath='pwd | pbcopy'
 alias ic="imgcat"
 alias jl="jless -r"
@@ -238,7 +238,7 @@ function y() {
 ###
 
 alias mh="rg -UA 6 'alias mh' $DOT_DIR/shell/.zprofile"
-alias hx="rg -A 16 -B 1 '## chords' $DOMAINS_DIR/art/music/theory.md | glow -"
+alias hx="rg -A 17 -B 1 '## chords' $DOMAINS_DIR/art/music/theory.md | glow -"
 alias int="rg -UNI '## intervals' -A 15 -B 1 $DOMAINS_DIR/art/music | glow -"
 # alias yj="rg -UNI '## scales' -A 7 -B 1 $DOMAINS_DIR/art/music | glow -"
 # alias clef="imgcat $MAT_DIR/music/theory/clef.png"
