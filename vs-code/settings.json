@@ -25,8 +25,8 @@
         "**/node_modules": true
     },
     "security.workspace.trust.untrustedFiles": "open",
+    "update.mode": "default",
     "terminal.integrated.enableBell": false,
-    "update.mode": "none",
     "vim.debug.silent": true,
     "vim.useSystemClipboard": true,
     "window.restoreWindows": "one",
