@@ -260,6 +260,7 @@ alias gl="git l"         # prettified log of previous 10 commits
 alias gc="git c"         # commit
 alias gca="git c --amend"  # commit amend
 alias gcne="git c --amend --no-edit"  # commit amend
+alias gp="ga; gcne; git push -f"      # commit + force push
 alias gshow="git log --format=%B -n 1"  # msg description for commit
 
 ###

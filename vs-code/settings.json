@@ -35,5 +35,6 @@
     },
     "workbench.editor.openPositioning": "last",
     "workbench.colorTheme": "Catppuccin Mocha",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 1
 }
