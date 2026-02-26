@@ -131,6 +131,7 @@ alias mat="cd $MAT_DIR; t 2"
 alias yin="cd $ZV_DIR/yin"
 alias per="cd $PER_DIR"
 alias logs="cd $PER_DIR/logs"
+alias falu="cd $PER_DIR/.falu; t"
 alias ml="cd $MAT_DIR/music/za/music-library; nv README.md"
 alias ren="cd $PER_DIR/people"
 

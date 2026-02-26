@@ -2,7 +2,7 @@
     "editor.acceptSuggestionOnEnter": "off",
     "editor.accessibilitySupport": "off",
     "editor.detectIndentation": false,
-    "editor.fontSize": 11,
+    "editor.fontSize": 9.5,
     "editor.lineNumbers": "relative",
     "editor.wordWrap": "on",
     "extensions.ignoreRecommendations": true,
