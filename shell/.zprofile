@@ -122,6 +122,8 @@ alias snip="cd $HOME/Library/Application\ Support/Code/User/snippets"
 alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
 alias zv="cd $ZV_DIR"
+alias xm="cd $ZV_DIR/projects; l"
+alias cork="cd $ZV_DIR/projects/corkboard; t"
 
 # DOCS
 alias dom="\cd $DOMAINS_DIR; jbdom"
@@ -146,6 +148,7 @@ alias cppath='pwd | pbcopy'
 alias ic="imgcat"
 alias jl="jless -r"
 alias m="make"
+alias j="just"
 alias mkd='function mkd(){ mkdir "$1"; cd "$1";}; mkd'
 alias nv="nvim"
 alias o="open"
