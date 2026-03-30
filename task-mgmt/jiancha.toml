@@ -1,0 +1,22 @@
+[notes]
+sw = "/Users/zach/Documents/zv/notes/sw"
+domains = "/Users/zach/Documents/zv/notes/domains"
+bookcase ="/Users/zach/Documents/zv/notes/bookcase"
+
+[projects]
+corkboard = "/Users/zach/Documents/zv/projects/corkboard"
+corkboard-tasks = "/Users/zach/Documents/zv/personal/corkboard-tasks"
+sgt = "/Users/zach/Documents/zv/projects/sgt"
+ceemuz = "/Users/zach/Documents/zv/projects/ceemuz"
+
+[denv]
+# dot = "/Users/zach/Documents/denv/dotfiles"
+# bin = "/Users/zach/Documents/denv/bin"
+# logs = "/Users/zach/Documents/denv/logs"
+
+[workflow]
+# jiancha = "/Users/zach/Documents/zv/projects/lang/rust/jian-cha"
+# jina = "/Users/zach/Documents/zv/projects/design/architecture/jina"
+# md-book = "/Users/zach/Documents/zv/projects/design/app/md-book"
+# sympop = "/Users/zach/Documents/zv/projects/design/app/sympop"
+

@@ -124,6 +124,7 @@ alias desk="cd $HOME/Desktop"
 alias zv="cd $ZV_DIR"
 alias xm="cd $ZV_DIR/projects; l"
 alias cork="cd $ZV_DIR/projects/corkboard; t"
+alias ct="cd /Users/zach/Documents/zv/personal/corkboard-tasks; t"
 
 # DOCS
 alias dom="\cd $DOMAINS_DIR; jbdom"
@@ -141,6 +142,7 @@ alias ren="cd $PER_DIR/people"
 # 🛠 UTILS
 ###
 
+alias jc="jiancha"
 alias b="br"
 alias bpy="bpython"
 alias cd='function cdl(){ cd "$1"; pwd; sl;}; cdl'
