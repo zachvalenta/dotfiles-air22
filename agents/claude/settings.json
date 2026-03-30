@@ -1,0 +1,30 @@
+{
+  "alwaysThinkingEnabled": true,
+  "vimMode": true,
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Read",
+      "SlashCommand",
+      "Task",
+      "WebFetch",
+      "WebSearch",
+      "Write"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+        {
+            "hooks": [
+            {
+                "type": "command",
+                "command": "afplay /System/Library/Sounds/Blow.aiff"
+            }
+            ]
+        }
+    ]
+  }
+}
