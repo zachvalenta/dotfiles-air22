@@ -1,0 +1,10 @@
+# Nord
+bg       = "#2e3440"
+surface0 = "#3b4252"
+surface1 = "#434c5e"
+overlay  = "#4c566a"
+text     = "#eceff4"
+next     = "#81a1c1"  # nord9  (blue)
+now      = "#ebcb8b"  # nord13 (yellow)
+done     = "#a3be8c"  # nord14 (green)
+grabbed  = "#b48ead"  # nord15 (purple)

@@ -1,0 +1,10 @@
+# Catppuccin Mocha
+bg       = "#1e1e2e"
+surface0 = "#313244"
+surface1 = "#45475a"
+overlay  = "#6c7086"
+text     = "#cdd6f4"
+next     = "#89b4fa"  # blue
+now      = "#fab387"  # peach
+done     = "#a6e3a1"  # green
+grabbed  = "#cba6f7"  # mauve

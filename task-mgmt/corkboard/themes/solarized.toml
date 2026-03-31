@@ -1,0 +1,10 @@
+# Solarized Dark
+bg       = "#002b36"
+surface0 = "#073642"
+surface1 = "#586e75"
+overlay  = "#657b83"
+text     = "#eee8d5"
+next     = "#268bd2"  # blue
+now      = "#b58900"  # yellow
+done     = "#859900"  # green
+grabbed  = "#6c71c4"  # violet
