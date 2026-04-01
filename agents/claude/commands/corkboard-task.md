@@ -1,4 +1,4 @@
-Look up a corkboard task by name and display its details.
+Load a corkboard task and treat its body as a prompt to act on.
 
 Query: $ARGUMENTS
 
@@ -8,9 +8,7 @@ Query: $ARGUMENTS
 
 2. Search the `tasks` array for entries where `title` or `slug` contains the query (case-insensitive). Prefer exact title matches, then prefix matches, then substring matches.
 
-3. **One match:** Read the full file at `<tasks_dir>/<task.path>` and display:
-   - Title, project, status, priority, tags
-   - Body content (the markdown below the `+++` frontmatter block), if any
+3. **One match:** Read the full file at `<tasks_dir>/<task.path>`. Display title, project, status, priority briefly, then treat the body (below `+++`) as a prompt and respond to it — answer questions, take actions, continue in-progress work, etc.
 
 4. **Multiple matches:** List them (title + project + status) and ask which one.
 
