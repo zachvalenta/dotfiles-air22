@@ -10,7 +10,7 @@ sgt = "/Users/zach/Documents/zv/projects/sgt"
 ceemuz = "/Users/zach/Documents/zv/projects/ceemuz"
 
 [denv]
-# dot = "/Users/zach/Documents/denv/dotfiles"
+dot = "/Users/zach/Documents/denv/dotfiles"
 # bin = "/Users/zach/Documents/denv/bin"
 # logs = "/Users/zach/Documents/denv/logs"
 
