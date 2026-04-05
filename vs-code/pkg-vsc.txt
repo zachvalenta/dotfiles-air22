@@ -1,6 +1,8 @@
-catppuccin.catppuccin-vsc-3.3.0
-gera2ld.markmap-vscode-0.0.17
+catppuccin.catppuccin-vsc-3.18.1
+extensions.json
+gera2ld.markmap-vscode-0.2.11
 liviuschera.noctis-10.43.3
+tamasfe.even-better-toml-0.21.2
 terrastruct.d2-0.8.8
-vscodevim.vim-1.24.3
-yzhang.markdown-all-in-one-3.5.1
+vscodevim.vim-1.32.4
+yzhang.markdown-all-in-one-3.6.3
