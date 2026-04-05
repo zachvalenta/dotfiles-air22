@@ -123,7 +123,7 @@ alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
 alias zv="cd $ZV_DIR"
 alias xm="cd $ZV_DIR/projects; l"
-alias cork="cd $ZV_DIR/projects/corkboard; t"
+alias cork="cd $ZV_DIR/projects/tools/corkboard; t"
 alias cb="cork; just run"
 alias ct="cd /Users/zach/Documents/zv/personal/corkboard-tasks; t 2"
 
