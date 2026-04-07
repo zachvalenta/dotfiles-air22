@@ -1,6 +1,4 @@
 {
-  "alwaysThinkingEnabled": true,
-  "vimMode": true,
   "permissions": {
     "allow": [
       "Bash",
@@ -17,14 +15,19 @@
   },
   "hooks": {
     "Stop": [
-        {
-            "hooks": [
-            {
-                "type": "command",
-                "command": "afplay /System/Library/Sounds/Blow.aiff"
-            }
-            ]
-        }
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Blow.aiff"
+          }
+        ]
+      }
     ]
+  },
+  "alwaysThinkingEnabled": true,
+  "vimMode": true,
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
   }
 }
