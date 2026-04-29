@@ -28,6 +28,29 @@
     "update.mode": "default",
     "terminal.integrated.enableBell": false,
     "vim.debug.silent": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "j"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>", "k"],
+            "commands": ["workbench.action.gotoSymbol"]
+        },
+        {
+            "before": ["<leader>", "l"],
+            "commands": ["workbench.action.showAllSymbols"]
+        },
+        {
+            "before": ["<leader>", ";"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        {
+            "before": ["<leader>", "'"],
+            "commands": ["workbench.action.reopenClosedEditor"]
+        }
+    ],
     "vim.useSystemClipboard": true,
     "window.restoreWindows": "one",
     "workbench.colorCustomizations": {

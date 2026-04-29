@@ -123,9 +123,10 @@ alias home="cd $HOME"
 alias desk="cd $HOME/Desktop"
 alias zv="cd $ZV_DIR"
 alias xm="cd $ZV_DIR/projects; l"
-alias fj="cd $ZV_DIR/projects/tools/corkboard; just run"
-alias jf="cd /Users/zach/Documents/zv/personal/corkboard-tasks; t 2"
 alias cm="cd $ZV_DIR/projects/tools/ceemuz; t"
+alias cork="cd $ZV_DIR/projects/tools/corkboard; t"
+alias fj="corkboard"
+alias jf="cd /Users/zach/Documents/zv/personal/corkboard-tasks; t 2"
 
 # DOCS
 alias dom="\cd $DOMAINS_DIR; jbdom"
