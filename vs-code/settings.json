@@ -26,10 +26,9 @@
     },
     "security.workspace.trust.untrustedFiles": "open",
     "update.mode": "default",
-    "terminal.integrated.enableBell": false,
     "vim.debug.silent": true,
     "vim.leader": "<space>",
-    "vim.normalModeKeyBindings": [
+"vim.normalModeKeyBindings": [
         {
             "before": ["<leader>", "j"],
             "commands": ["workbench.action.quickOpen"]
@@ -39,18 +38,62 @@
             "commands": ["workbench.action.gotoSymbol"]
         },
         {
-            "before": ["<leader>", "l"],
+            "before": ["<leader>", "a"],
             "commands": ["workbench.action.showAllSymbols"]
         },
         {
-            "before": ["<leader>", ";"],
+            "before": ["<leader>", "h"],
+            "commands": ["workbench.action.previousEditor"]
+        },
+        {
+            "before": ["<leader>", "l"],
+            "commands": ["workbench.action.nextEditor"]
+        },
+        {
+            "before": ["<leader>", "s"],
+            "commands": ["workbench.action.files.save"]
+        },
+        {
+            "before": ["<leader>", "x"],
             "commands": ["workbench.action.closeActiveEditor"]
         },
         {
-            "before": ["<leader>", "'"],
+            "before": ["<leader>", "z"],
             "commands": ["workbench.action.reopenClosedEditor"]
+        },
+        {
+            "before": ["<leader>", "p"],
+            "commands": ["workbench.action.pinEditor"]
+        },
+        {
+            "before": ["<leader>", "o"],
+            "commands": ["workbench.action.unpinEditor"]
+        },
+        {
+            "before": ["<leader>", "1"],
+            "commands": ["workbench.action.openEditorAtIndex1"]
+        },
+        {
+            "before": ["<leader>", "2"],
+            "commands": ["workbench.action.openEditorAtIndex2"]
+        },
+        {
+            "before": ["<leader>", "3"],
+            "commands": ["workbench.action.openEditorAtIndex3"]
+        },
+        {
+            "before": ["<leader>", "4"],
+            "commands": ["workbench.action.openEditorAtIndex4"]
+        },
+        {
+            "before": ["<leader>", "5"],
+            "commands": ["workbench.action.openEditorAtIndex5"]
+        },
+        {
+            "before": ["<leader>", "9"],
+            "commands": ["workbench.action.lastEditorInGroup"]
         }
-    ],
+],
     "vim.useSystemClipboard": true,
     "window.restoreWindows": "one",
     "workbench.colorCustomizations": {
@@ -59,5 +102,9 @@
     "workbench.editor.openPositioning": "last",
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.startupEditor": "newUntitledFile",
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "accessibility.signals.terminalBell": {
+        "sound": "off"
+    },
+    "terminal.integrated.enableVisualBell": false
 }
