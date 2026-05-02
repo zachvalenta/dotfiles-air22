@@ -27,5 +27,21 @@
             "```",
             ""
         ]
-	}
+	},
+     "corkboard_task": {
+		"prefix": "mdt",
+		"description": "headers for corkboard task file",
+		"body": [
+            "# 🏮 WORKLOG",
+            "",
+            "- [ ] $1",
+            "",
+			"# 🧪 RESEARCH",
+			"",
+			"# 📡 PROMPT",
+            "",
+            "# 🛰️ IMPL",
+            ""
+        ]
+    }
 }
