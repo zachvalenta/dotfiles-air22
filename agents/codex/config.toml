@@ -1,0 +1,10 @@
+model = "gpt-5.5"
+model_reasoning_effort = "medium"  # low, medium, high
+
+[features]
+codex_hooks = true
+
+###
+# PER-REPO PERMS
+###
+
