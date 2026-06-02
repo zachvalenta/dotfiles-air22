@@ -28,6 +28,20 @@
             ""
         ]
 	},
+    "md_note": {
+        "prefix": "mdn",
+        "description": "note template",
+        "body": [
+            "# ⛩️",
+            "",
+            "## 参考",
+            "",
+            "## 进步",
+            "",
+            "# 🟨 ZA",
+            ""
+        ]
+    },
      "corkboard_task": {
 		"prefix": "mdt",
 		"description": "headers for corkboard task file",
