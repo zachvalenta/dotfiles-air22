@@ -11,6 +11,7 @@ ceemuz = "/Users/zach/Documents/zv/projects/tools/ceemuz"
 
 [denv]
 dot = "/Users/zach/Documents/denv/dotfiles"
+worklogs = "/Users/zach/Documents/zv/personal/worklogs"
 # bin = "/Users/zach/Documents/denv/bin"
 # logs = "/Users/zach/Documents/denv/logs"
 
