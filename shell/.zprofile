@@ -170,6 +170,14 @@ alias ytd='yt-dlp "$1"'
 alias ytdv='yt-dlp --format mp4 "$1"'
 
 ###
+# AGENTS
+###
+
+alias cc="claude"
+alias oa="codex"
+# alias oc="opencode"
+
+###
 # EZA
 ###
 

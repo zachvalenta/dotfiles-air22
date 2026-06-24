@@ -9,3 +9,10 @@ source /Users/zach/Library/Application\ Support/org.dystroy.broot/launcher/bash/
 
 eval "$(atuin init zsh)"
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
+
+# bun completions
+[ -s "/Users/zach/.bun/_bun" ] && source "/Users/zach/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
