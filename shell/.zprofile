@@ -129,8 +129,7 @@ alias cm="cd $ZV_DIR/projects/tools/ceemuz; t"
 alias cork="cd $ZV_DIR/projects/tools/corkboard; t"
 alias fj="corkboard"
 alias jf="cd /Users/zach/Documents/zv/personal/corkboard-tasks; t 2"
-alias js="clear; \cd /Users/zach/Documents/zv/personal/corkboard-tasks/sw/career; t"
-alias rdd="\cd /Users/zach/Documents/zv/projects/data/rdd; t"
+alias js="\cd /Users/zach/Documents/zv/projects/data/rdd; t"
 
 # DOCS
 alias dom="\cd $DOMAINS_DIR; jbdom"
