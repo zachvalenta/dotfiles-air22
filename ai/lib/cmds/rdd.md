@@ -1,1 +1,1 @@
-Read `/Users/zach/Documents/zv/projects/data/rdd/context/#bb.md`.
+Read and act on the instructions in `/Users/zach/Documents/zv/projects/data/rdd/context/#bb.md`.
