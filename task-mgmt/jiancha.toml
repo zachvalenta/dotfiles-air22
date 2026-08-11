@@ -7,8 +7,6 @@ bookcase ="/Users/zach/Documents/zv/notes/bookcase"
 corkboard = "/Users/zach/Documents/zv/projects/tools/corkboard"
 tasks = "/Users/zach/Documents/zv/personal/corkboard-tasks"
 rdd = "/Users/zach/Documents/zv/projects/data/rdd"
-# sgt = "/Users/zach/Documents/zv/projects/design/sgt"
-# ceemuz = "/Users/zach/Documents/zv/projects/tools/ceemuz"
 
 [denv]
 dot = "/Users/zach/Documents/denv/dotfiles"
@@ -16,9 +14,7 @@ worklogs = "/Users/zach/Documents/zv/personal/worklogs"
 # bin = "/Users/zach/Documents/denv/bin"
 # logs = "/Users/zach/Documents/denv/logs"
 
-[workflow]
-# jiancha = "/Users/zach/Documents/zv/projects/lang/rust/jian-cha"
-# jina = "/Users/zach/Documents/zv/projects/design/architecture/jina"
-# md-book = "/Users/zach/Documents/zv/projects/design/app/md-book"
-# sympop = "/Users/zach/Documents/zv/projects/design/app/sympop"
-
+[colligo]
+org = "/Users/zach/Documents/zv/work/colligo/docs/org"
+eng = "/Users/zach/Documents/zv/work/colligo/docs/eng"
+worklogs = "/Users/zach/Documents/zv/work/colligo/docs/worklogs"

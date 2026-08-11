@@ -138,6 +138,7 @@ alias ligo="\cd /Users/zach/Documents/zv/work/colligo; t 2"
 alias mob="\cd /Users/zach/Documents/zv/work/colligo/src/mobile; eza -l"
 alias cl="\cd /Users/zach/Documents/zv/work/colligo/docs/worklogs; t"
 alias ce="\cd /Users/zach/Documents/zv/work/colligo/docs/eng; t 2"
+alias org="\cd /Users/zach/Documents/zv/work/colligo/docs/org; t 2"
 
 # DOCS
 alias dom="\cd $DOMAINS_DIR; jbdom"
