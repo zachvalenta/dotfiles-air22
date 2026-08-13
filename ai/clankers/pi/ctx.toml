@@ -1,0 +1,11 @@
+[me]
+sw = "/Users/zach/Documents/zv/notes/sw"
+domains = "/Users/zach/Documents/zv/notes/domains"
+
+[colligo]
+org = "/Users/zach/Documents/zv/work/colligo/docs/org"
+eng = "/Users/zach/Documents/zv/work/colligo/docs/eng"
+db = "/Users/zach/Documents/zv/work/colligo/denv/db.sqlite"
+backend = "/Users/zach/Documents/zv/work/colligo/src/backend"
+mobile = "/Users/zach/Documents/zv/work/colligo/src/mobile"
+site = "/Users/zach/Documents/zv/work/colligo/src/site"
