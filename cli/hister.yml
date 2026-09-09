@@ -1,7 +1,6 @@
 app:
-    directory: /Users/zach/Library/Application Support/hister
-    title: Hister
-    subtitle: Your own search engine
+    title: hister
+    subtitle: zjv's own search engine
     color_scheme: automatic
     search_url: https://google.com/search?q={query}
     access_token: ""
@@ -11,7 +10,7 @@ app:
     log_file: ""
     log_format: ""
     debug_sql: false
-    open_results_on_new_tab: false
+    open_results_on_new_tab: true
     redirect_on_no_results: true
     display_extractor_config: false
     disable_previews: false
@@ -26,33 +25,16 @@ server:
 indexer:
     detect_languages: true
     keep_stopwords: false
-    directories: []
     max_file_size_mb: 1
-crawler:
-    timeout: 5
-    delay: 0
-    backend: http
-    backend_options: {}
-    proxy: ""
-    user_agent: ""
-    headers: {}
-    cookies: []
-    no_robots: false
-semantic_search:
-    enable: false
-    embedding_endpoint: http://localhost:11434/v1/embeddings
-    embedding_model: qwen3-embedding:8b
-    embedding_timeout: 300
-    api_key: ""
-    headers: {}
-    dimensions: 2000
-    max_context_length: 512
-    chunk_overlap: 64
-    max_embedding_batch_size: 8
-    query_prefix: 'query: '
-    document_prefix: ""
-    similarity_threshold: 0.1
-    result_limit: 50
+    directories:
+    - path: '/Users/zach/Documents/zv/notes/domains'
+      filetypes: ['md']
+    # - path: '~/Documents/wiki'
+    #   label: 'wiki'
+    # - path: '/path/to/project'
+    #   label: 'project'
+    #   filetypes: ['go', 'py', 'js']
+
     semantic_weight: 0.4
     max_embedding_concurrency: 2
 hotkeys:
