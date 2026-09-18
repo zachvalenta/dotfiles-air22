@@ -122,7 +122,7 @@ alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
 alias snip="cd $HOME/Library/Application\ Support/Code/User/snippets"
 
 # ROOT
-alias home="cd $HOME"
+alias home="cd $HOME; eza -al"
 alias desk="cd $HOME/Desktop"
 alias zv="cd $ZV_DIR"
 alias xm="cd $ZV_DIR/projects; t 2"
