@@ -133,6 +133,7 @@ alias jf="cd /Users/zach/Documents/zv/personal/corkboard-tasks; t 2"
 alias kd="\cd /Users/zach/Documents/zv/projects/data/rdd; t"
 alias dk="clear; \cd /Users/zach/Documents/zv/projects/data/rdd/context; t"
 alias cv="cd /Users/zach/Desktop/resume; t 2"
+alias tb="clear; \cd /Users/zach/Documents/zv/projects/design/tracer-bullet; t"
 
 # COLLIGO
 alias ligo="\cd /Users/zach/Documents/zv/work/colligo; t 2"
