@@ -3,11 +3,11 @@ sw = "/Users/zach/Documents/zv/notes/sw"
 domains = "/Users/zach/Documents/zv/notes/domains"
 bookcase = "/Users/zach/Documents/zv/notes/bookcase"
 worldview = "/Users/zach/Documents/zv/personal/worldview"
+tasks = "/Users/zach/Documents/zv/personal/corkboard-tasks"
 
 [specs]
 # corkboard = "/Users/zach/Documents/zv/projects/tools/corkboard"
-tasks = "/Users/zach/Documents/zv/personal/corkboard-tasks"
-rdd = "/Users/zach/Documents/zv/projects/data/rdd"
+# rdd = "/Users/zach/Documents/zv/projects/data/rdd"
 
 [denv]
 dot = "/Users/zach/Documents/denv/dotfiles"
@@ -16,6 +16,7 @@ worklogs = "/Users/zach/Documents/zv/personal/worklogs"
 # logs = "/Users/zach/Documents/denv/logs"
 
 [colligo]
+tracer = "/Users/zach/Documents/zv/projects/design/tracer-bullet"
 eng = "/Users/zach/Documents/zv/work/colligo/docs/eng"
-org = "/Users/zach/Documents/zv/work/colligo/docs/org"
+# org = "/Users/zach/Documents/zv/work/colligo/docs/org"
 worklogs = "/Users/zach/Documents/zv/work/colligo/docs/worklogs"
