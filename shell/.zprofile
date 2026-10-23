@@ -106,6 +106,9 @@ function timer(){
 # 🚁 NAVIGATION
 ###
 
+alias fan="cd $ZV_DIR/cooking"
+alias cv="cd $ZV_DIR/projects/tools/resume; t 2"
+
 # CODE
 alias vc="cd $HOME/.config/nvim/lua/zv"
 alias plug="cd $HOME/.local/share/nvim/plugged"
@@ -115,7 +118,7 @@ alias denv="cd $DENV_DIR"
 alias bin="cd $DENV_DIR/bin"
 alias logs="cd $DENV_DIR/logs"
 alias dot="cd $DOT_DIR"
-alias wl="cd $PER_DIR/worklogs; t"
+alias wl="cd $PER_DIR/worklogs; t 2; gl"
 alias wv="cd $PER_DIR/worldview; t 2"
 alias brewfr="brew ls --versions > $DENV_DIR/logs/brew/brew-pkgs.txt"
 alias vsdir="cd $HOME/Library/Application\ Support/Code/User"
@@ -132,7 +135,6 @@ alias fj="corkboard"
 alias jf="cd /Users/zach/Documents/zv/personal/corkboard-tasks; t 2"
 alias kd="\cd /Users/zach/Documents/zv/projects/data/rdd; t"
 alias dk="clear; \cd /Users/zach/Documents/zv/projects/data/rdd/context; t"
-alias cv="cd /Users/zach/Desktop/resume; t 2"
 alias tb="clear; \cd /Users/zach/Documents/zv/projects/design/tracer-bullet; t"
 
 # COLLIGO

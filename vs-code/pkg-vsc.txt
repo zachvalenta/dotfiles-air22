@@ -1,6 +1,7 @@
-catppuccin.catppuccin-vsc-3.18.1
+catppuccin.catppuccin-vsc-3.19.0
+dubadub.cook-0.4.2
 extensions.json
-gera2ld.markmap-vscode-0.2.11
+gera2ld.markmap-vscode-0.2.12
 liviuschera.noctis-10.43.3
 tamasfe.even-better-toml-0.21.2
 terrastruct.d2-0.8.8
