@@ -5,7 +5,8 @@ bookcase = "/Users/zach/Documents/zv/notes/bookcase"
 worldview = "/Users/zach/Documents/zv/personal/worldview"
 tasks = "/Users/zach/Documents/zv/personal/corkboard-tasks"
 
-[specs]
+[projects]
+resume = "/Users/zach/Documents/zv/projects/tools/resume-typst"
 # corkboard = "/Users/zach/Documents/zv/projects/tools/corkboard"
 # rdd = "/Users/zach/Documents/zv/projects/data/rdd"
 
