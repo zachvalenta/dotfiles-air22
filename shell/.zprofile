@@ -109,6 +109,7 @@ function timer(){
 alias fan="cd $ZV_DIR/cooking"
 alias cv="cd $ZV_DIR/projects/tools/resume; t 2"
 alias cvt="cd $ZV_DIR/projects/tools/resume-typst; t"
+alias alt="cd /Users/zach/Documents/zv/projects/tools/altman; t"
 
 # CODE
 alias vc="cd $HOME/.config/nvim/lua/zv"
