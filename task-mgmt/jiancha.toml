@@ -8,6 +8,7 @@ tasks = "/Users/zach/Documents/zv/personal/corkboard-tasks"
 [projects]
 resume = "/Users/zach/Documents/zv/projects/tools/resume-typst"
 alt = "/Users/zach/Documents/zv/projects/tools/altman"
+ats = "/Users/zach/Documents/zv/projects/tools/ats"
 # corkboard = "/Users/zach/Documents/zv/projects/tools/corkboard"
 # rdd = "/Users/zach/Documents/zv/projects/data/rdd"
 
