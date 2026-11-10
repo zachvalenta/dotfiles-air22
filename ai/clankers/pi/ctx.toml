@@ -1,6 +1,9 @@
-[me]
+[notes]
 sw = "/Users/zach/Documents/zv/notes/sw"
-domains = "/Users/zach/Documents/zv/notes/domains"
+dom = "/Users/zach/Documents/zv/notes/domains"
+shu = "/Users/zach/Documents/zv/notes/bookcase"
+wv = "/Users/zach/Documents/zv/personal/worldview"
+tasks = "/Users/zach/Documents/zv/personal/corkboard-tasks"
 
 [colligo]
 org = "/Users/zach/Documents/zv/work/colligo/docs/org"
