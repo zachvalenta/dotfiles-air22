@@ -1,175 +1,87 @@
 # CTX
 
-/ctx loads chain-able context (files | directories) into the next Pi message.
+`/ctx` gives Pi **lazy context roots**. Rather than injecting a recursive directory map or every file, it injects the selected root's search strategy and the task.
+
+```text
+/ctx notes.sw notes.tasks -- what should I build next?
+```
+
+The agent receives the two roots and their respective discovery playbooks. It should inspect the cheapest structured view first, then read only the files that become relevant.
 
 ## config
 
-Configure sources in TOML tables. Use Python-object-style names: `<table>.<key>`.
+`ctx.ts` reads `ctx.yaml` beside it. It is mapping-only YAML, intentionally dependency-free. Context names are the nested mapping path; `strategies` is reserved.
 
-```toml
-[me]
-sw = "/Users/zach/Documents/zv/notes/sw"
-domains = "/Users/zach/Documents/zv/notes/domains"
+```yaml
+strategies:
+  ext:
+    tool: /Users/zach/Documents/denv/bin/ext
+    guide: ctx-strategies/ext.md
+  json-index:
+    guide: ctx-strategies/json-index.md
+  filesystem:
+    guide: ctx-strategies/filesystem.md
 
-[colligo]
-eng = "/Users/zach/Documents/zv/work/colligo/docs/eng"
-site = "/Users/zach/Documents/zv/work/colligo/src/site"
+notes:
+  sw:
+    filepath: /Users/zach/Documents/zv/notes/sw
+    strategy: ext
+    index: index.yaml
+  tasks:
+    filepath: /Users/zach/Documents/zv/personal/corkboard-tasks
+    strategy: json-index
+    index: .task-index.json
 ```
 
-This exposes:
+Each context needs:
 
-```text
-me.sw
-me.domains
-colligo.eng
-colligo.site
-```
+* `filepath`: its root (or a single file)
+* `strategy`: a named strategy
+* `index`: optional manifest path relative to the root
+
+Each strategy has a `guide`, plus an optional `tool`. Guides are Markdown and support `{{root}}`, `{{target}}`, `{{index}}`, and `{{tool}}`. This keeps tool-specific procedures reusable while letting unstructured repositories use a plain filesystem/grep playbook.
+
+## built-in strategies
+
+* `ext`: progressively runs `ext --yaml --depth=1`, then depth 2 and 3 on promising areas. It is for Markdown heading corpora such as `notes.sw`.
+* `json-index`: starts from the configured JSON manifest and uses focused `rg`/`jq` before source reads.
+* `filesystem`: reads small root metadata, then uses narrow `rg --files` and `rg -n`; it deliberately has no broad traversal.
+
+Add a new guide when a corpus needs a different search procedure; do not encode a large corpus into `/ctx` itself.
 
 ## usage
 
-Load context and provide a task:
-
 ```text
-/ctx me.sw colligo.eng -- find docs relevant to Cognito auth
+/ctx notes.sw notes.tasks -- what should I build next?
+/ctx notes.sw -- find notes related to DuckDB extensions
+/ctx colligo.eng/aws/cognito.md -- summarize this file
+/ctx denv.logs -- find the error around yesterday's deploy
 ```
 
-Load a file or subdirectory below a configured source:
+A configured source can include a subpath. A selected directory receives its source's strategy with the subpath as `{{target}}`; a selected file is read directly (capped at 80 KiB).
 
-```text
-/ctx colligo.eng/aws/cognito.md -- summarize the Cognito setup
-/ctx colligo.site/design-system/ -- inspect the relevant design-system docs
-```
-
-Load context only, no task:
-
-```text
-/ctx colligo.eng colligo.site
-```
-
-This asks the model to acknowledge what was loaded and wait for the next instruction.
+With no `--`, the remaining words are treated as the task. Use `--` when the task could look like a context name.
 
 ## autocomplete
 
-Typing `/ctx ` surfaces configured sources:
+Typing `/ctx ` completes configured context names. It intentionally does not enumerate every descendant path: that would recreate the eager directory-map problem. Enter a known subpath manually when needed.
+
+## safety and prompt shape
+
+Directory contexts contain no corpus text. `/ctx` explicitly tells the agent to follow the supplied strategy and not recursively dump/read the root. File contexts are capped at 80 KiB and carry a truncation notice.
+
+The sent message is shaped like:
 
 ```text
-colligo.eng    /Users/zach/Documents/zv/work/colligo/docs/eng
-me.domains     /Users/zach/Documents/zv/notes/domains
-me.sw          /Users/zach/Documents/zv/notes/sw
-```
+Use the configured contexts below. Directory contexts are lazy: no corpus content was loaded.
 
-After selecting one source, autocomplete remains additive:
-
-```text
-/ctx me.domains me
-```
-
-selecting `me.sw` becomes:
-
-```text
-/ctx me.domains me.sw 
-```
-
-Path autocomplete also works below configured roots:
-
-```text
-/ctx colligo.eng/aws/
-```
-
-# FILE LOADING
-
-## files
-
-When the target is a file, `/ctx` reads the file content into the prompt.
-
-SAFETY
-* file reads are capped at 80KB
-* if a file is larger, only the first 80KB is sent
-* the prompt includes a truncation notice
-
-Example:
-
-```text
-/ctx colligo.eng/aws/cognito.md -- explain this setup
-```
-
-## directories
-
-When the target is a directory, /ctx does not read every file.
-
-Instead, it sends a capped directory map:
-
-```text
-Directory map under /path/to/source:
-This is a path map only. /ctx did not read every file in this directory.
-Use Pi tools to inspect only the files needed for the user's task.
-- README.md
-- package.json
-- src/
-- src/App.tsx
-```
-
-This is meant to tell the model:
-
-> this directory is relevant; navigate it intelligently using tools
-
-It is not meant to dump source code into context.
-
-SAFETY
-* directory maps are capped at 300 entries
-* common generated/vendor dirs are skipped: `.git`, `.next`, `.turbo`, `.venv`, `build`, `coverage`, `dist`, `node_modules`, `target`, `vendor`
-* hidden files and dirs are skipped
-* file contents are not read for directory targets
-
-This makes source-code dirs safe to pass as context hints:
-
-```text
-/ctx colligo.site -- find the auth page and update layout
-```
-
-The model sees a map, then can use normal Pi tools like `read`, `grep`, `find`, and `ls` to inspect only what is needed.
-
-# DESIGN
-
-## prompt shape
-
-`/ctx` sends a user message shaped like:
-
-```text
-Use the following configured context for this task.
-
-<!-- BEGIN /ctx colligo.site (directory: /path/to/site) -->
-Directory map under /path/to/site:
-...
-<!-- END /ctx colligo.site -->
+<!-- BEGIN /ctx notes.sw (directory: /…/notes/sw) -->
+Context root: /…/notes/sw
+Selected target: /…/notes/sw
+Discovery strategy: ext (index: /…/notes/sw/index.yaml)
+…strategy guide…
+<!-- END /ctx notes.sw -->
 
 Task:
-find the auth page and update layout
+what should I build next?
 ```
-
-For files, the section contains file content. For directories, the section contains only the directory map.
-
-## path safety
-
-Subpaths are resolved under their configured source root.
-
-This is allowed:
-
-```text
-/ctx colligo.eng/aws/cognito.md -- summarize
-```
-
-Escaping the source root is refused:
-
-```text
-/ctx colligo.eng/../../secrets.md -- summarize
-```
-
-# 🟨 ZA
-
-Future ideas:
-
-* add config for per-source entry caps
-* add config for exclude patterns
-* include small root metadata files by default, e.g. `README.md`, `AGENTS.md`, `CLAUDE.md`, `package.json`
-* support an explicit deep-read mode for docs-only trees, separate from safe source-code directory maps

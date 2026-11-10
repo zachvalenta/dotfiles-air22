@@ -1,0 +1,58 @@
+# Context roots are lazy: /ctx gives the agent the matching strategy, not a tree dump.
+strategies:
+  ext:
+    tool: /Users/zach/Documents/denv/bin/ext
+    guide: ctx-strategies/ext.md
+  json-index:
+    guide: ctx-strategies/json-index.md
+  filesystem:
+    guide: ctx-strategies/filesystem.md
+
+notes:
+  sw:
+    filepath: /Users/zach/Documents/zv/notes/sw
+    strategy: ext
+    index: index.yaml
+  domains:
+    filepath: /Users/zach/Documents/zv/notes/domains
+    strategy: ext
+    index: index.yaml
+  bookcase:
+    filepath: /Users/zach/Documents/zv/notes/bookcase
+    strategy: json-index
+    index: .bookcase-index.json
+  worldview:
+    filepath: /Users/zach/Documents/zv/personal/worldview
+    strategy: filesystem
+  tasks:
+    filepath: /Users/zach/Documents/zv/personal/corkboard-tasks
+    strategy: json-index
+    index: .task-index.json
+
+colligo:
+  org:
+    filepath: /Users/zach/Documents/zv/work/colligo/docs/org
+    strategy: filesystem
+  eng:
+    filepath: /Users/zach/Documents/zv/work/colligo/docs/eng
+    strategy: filesystem
+  db:
+    filepath: /Users/zach/Documents/zv/work/colligo/denv/eda.md
+    strategy: filesystem
+  backend:
+    filepath: /Users/zach/Documents/zv/work/colligo/src/backend
+    strategy: filesystem
+  mobile:
+    filepath: /Users/zach/Documents/zv/work/colligo/src/mobile
+    strategy: filesystem
+  site:
+    filepath: /Users/zach/Documents/zv/work/colligo/src/site
+    strategy: filesystem
+
+denv:
+  bin:
+    filepath: /Users/zach/Documents/denv/bin
+    strategy: ext
+  logs:
+    filepath: /Users/zach/Documents/denv/logs
+    strategy: filesystem
