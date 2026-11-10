@@ -31,6 +31,17 @@ type ResolvedContext = {
 	content: string;
 };
 
+type TraceRoot = {
+	name: string;
+	path: string;
+};
+
+type TraversalTrace = {
+	roots: TraceRoot[];
+	files: Map<string, Map<string, Set<string>>>;
+	operations: Map<string, Set<string>>;
+};
+
 function expandHome(rawPath: string): string {
 	if (rawPath === "~") return os.homedir();
 	if (rawPath.startsWith("~/")) return path.join(os.homedir(), rawPath.slice(2));
@@ -189,6 +200,101 @@ function resolveContext(token: string, sources: Source[]): ResolvedContext {
 	throw new Error(`Not a file or directory: ${targetPath}`);
 }
 
+function pathWithin(root: string, candidate: string): boolean {
+	const relative = path.relative(root, candidate);
+	return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative));
+}
+
+function traceRootForPath(trace: TraversalTrace, rawPath: string): TraceRoot | undefined {
+	const candidate = path.resolve(rawPath);
+	return trace.roots.find((root) => pathWithin(root.path, candidate));
+}
+
+function recordTraversal(trace: TraversalTrace, rawPath: string, headers: string[] = []): void {
+	const root = traceRootForPath(trace, rawPath);
+	if (!root) return;
+	const resolved = path.resolve(rawPath);
+	const relativePath = path.relative(root.path, resolved) || path.basename(resolved);
+	let files = trace.files.get(root.name);
+	if (!files) trace.files.set(root.name, files = new Map());
+	let knownHeaders = files.get(relativePath);
+	if (!knownHeaders) files.set(relativePath, knownHeaders = new Set());
+	for (const header of headers) knownHeaders.add(header);
+}
+
+function markdownHeaders(text: string): string[] {
+	return [...text.matchAll(/^#{1,6}\s+(.+?)\s*#*\s*$/gm)].map((match) => match[1]!);
+}
+
+function textBlocks(content: Array<{ type: string; text?: string }>): string {
+	return content.filter((block) => block.type === "text" && typeof block.text === "string").map((block) => block.text!).join("\n");
+}
+
+function recordOperation(trace: TraversalTrace, root: TraceRoot, operation: string): void {
+	let operations = trace.operations.get(root.name);
+	if (!operations) trace.operations.set(root.name, operations = new Set());
+	operations.add(operation.replace(/\s+/g, " ").trim().slice(0, 240));
+}
+
+function recordPathOperation(trace: TraversalTrace, rawPath: string, operation: string): void {
+	const root = traceRootForPath(trace, rawPath);
+	if (root) recordOperation(trace, root, operation);
+}
+
+function recordBashOperation(trace: TraversalTrace, command: string): void {
+	for (const root of trace.roots) if (command.includes(root.path)) recordOperation(trace, root, `bash: ${command}`);
+}
+
+function yamlKey(value: string): string {
+	return /^[A-Za-z0-9_.\/-]+$/.test(value) ? value : JSON.stringify(value);
+}
+
+function renderTraceTree(entries: Array<[string, { files?: Map<string, Set<string>>; operations?: Set<string> }]>): string[] {
+	const root = new Map<string, unknown>();
+	for (const [sourceName, trace] of entries) {
+		let node = root;
+		for (const part of sourceName.split(".")) {
+			let child = node.get(part);
+			if (!(child instanceof Map)) node.set(part, child = new Map<string, unknown>());
+			node = child;
+		}
+		if (trace.operations?.size) node.set("__operations__", trace.operations);
+		if (trace.files?.size) node.set("__files__", trace.files);
+	}
+	const render = (node: Map<string, unknown>, indent: string): string[] => {
+		const lines: string[] = [];
+		for (const [key, value] of node) {
+			if (key === "__operations__") {
+				lines.push(`${indent}traversed:`);
+				for (const operation of value as Set<string>) lines.push(`${indent}  - ${yamlKey(operation)}`);
+				continue;
+			}
+			if (key === "__files__") {
+				lines.push(`${indent}read:`);
+				for (const [file, headers] of value as Map<string, Set<string>>) {
+					if (!headers.size) lines.push(`${indent}  ${yamlKey(file)}: []`);
+					else {
+						lines.push(`${indent}  ${yamlKey(file)}:`);
+						for (const header of headers) lines.push(`${indent}    - ${yamlKey(header)}`);
+					}
+				}
+				continue;
+			}
+			lines.push(`${indent}${yamlKey(key)}:`);
+			lines.push(...render(value as Map<string, unknown>, `${indent}  `));
+		}
+		return lines;
+	};
+	return render(root, "");
+}
+
+function renderTrace(trace: TraversalTrace): string | undefined {
+	const sourceNames = new Set([...trace.files.keys(), ...trace.operations.keys()]);
+	if (!sourceNames.size) return undefined;
+	const entries = [...sourceNames].map((name) => [name, { files: trace.files.get(name), operations: trace.operations.get(name) }] as [string, { files?: Map<string, Set<string>>; operations?: Set<string> }]);
+	return ["<!-- /ctx traversal -->", "```yaml", ...renderTraceTree(entries), "```", "<!-- /ctx traversal -->"].join("\n");
+}
+
 function getCompletionPrefix(args: string): string { return args.match(/(?:^|\s)(\S*)$/)?.[1] ?? ""; }
 function replacePrefix(args: string, value: string): string {
 	const prefix = getCompletionPrefix(args);
@@ -207,6 +313,33 @@ function getCompletions(args: string): AutocompleteItem[] | null {
 }
 
 export default function ctxExtension(pi: ExtensionAPI) {
+	let trace: TraversalTrace | undefined;
+
+	pi.on("tool_result", (event) => {
+		if (!trace || event.isError) return;
+		if (event.toolName === "read" && typeof event.input.path === "string") {
+			recordTraversal(trace, event.input.path, markdownHeaders(textBlocks(event.content)));
+			return;
+		}
+		if (event.toolName === "bash" && typeof event.input.command === "string") {
+			recordBashOperation(trace, event.input.command);
+			return;
+		}
+		if (["grep", "find", "ls"].includes(event.toolName) && typeof event.input.path === "string") {
+			recordPathOperation(trace, event.input.path, `${event.toolName}: ${event.input.path}`);
+		}
+	});
+
+	// A no-tool-call assistant message is the run's final answer. Prepend the
+	// observed traversal only then, rather than showing a partial trace between turns.
+	pi.on("message_end", (event) => {
+		if (!trace || event.message.role !== "assistant" || event.message.content.some((block) => block.type === "toolCall")) return;
+		const summary = renderTrace(trace);
+		if (!summary) return;
+		return { message: { ...event.message, content: [{ type: "text", text: `${summary}\n\n` }, ...event.message.content] } };
+	});
+	pi.on("agent_settled", () => { trace = undefined; });
+
 	pi.registerCommand("ctx", {
 		description: "Load context roots with their progressive discovery strategies",
 		getArgumentCompletions: getCompletions,
@@ -240,6 +373,11 @@ export default function ctxExtension(pi: ExtensionAPI) {
 			try { contexts = contextTokens.map((token) => resolveContext(token, sources)); } catch (error) {
 				ctx.ui.notify(error instanceof Error ? error.message : String(error), "error"); return;
 			}
+			trace = {
+				roots: contexts.map((context) => ({ name: findSource(context.label, sources)!.source.name, path: context.path })),
+				files: new Map(),
+				operations: new Map(),
+			};
 			const sections = contexts.map((context) => [
 				`<!-- BEGIN /ctx ${context.label} (${context.kind}: ${context.path}) -->`, context.content, `<!-- END /ctx ${context.label} -->`,
 			].join("\n"));

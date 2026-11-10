@@ -66,6 +66,12 @@ With no `--`, the remaining words are treated as the task. Use `--` when the tas
 
 Typing `/ctx ` completes configured context names. It intentionally does not enumerate every descendant path: that would recreate the eager directory-map problem. Enter a known subpath manually when needed.
 
+## traversal summary
+
+For a `/ctx`-started run, `main.ts` observes Pi's successful `tool_result` events and prepends a YAML traversal summary to the final assistant message. This is strategy-independent: it records files and Markdown headings returned by `read`, plus the successful `bash`, `grep`, `find`, and `ls` operations that explicitly target a selected context root.
+
+The summary is observational. A command is recorded as traversal, while only `read` results appear under `read`; it does not infer files from arbitrary shell output.
+
 ## safety and prompt shape
 
 Directory contexts contain no corpus text. `/ctx` explicitly tells the agent to follow the supplied strategy and not recursively dump/read the root. File contexts are capped at 80 KiB and carry a truncation notice.
@@ -84,4 +90,44 @@ Discovery strategy: ext (index: /…/notes/sw/index.yaml)
 
 Task:
 what should I build next?
+```
+
+## traversal report
+
+```sh
+/ctx notes.sw -- good project to learning streaming architectures, feels like the biggest thing is the upstream data source
+
+```
+
+```yaml
+notes:
+    sw:
+    traversed:
+        - "bash: /Users/zach/Documents/denv/bin/ext \"/Users/zach/Documents/zv/notes/sw/design/infra/streams.md\" --yaml --depth=3"
+        - "bash: /Users/zach/Documents/denv/bin/ext \"/Users/zach/Documents/zv/notes/sw/data/eng/01-ingest.md\" --yaml --depth=3"
+        - "bash: /Users/zach/Documents/denv/bin/ext \"/Users/zach/Documents/zv/notes/sw/data/eng/03-process.md\" --yaml --depth=3"
+    read:
+        design/infra/streams.md:
+        - "⛩️"
+        - "参考"
+        - "进步"
+        - "🐙 KAFKA"
+        - "https://chatgpt.com/c/67f82c9e-e088-8004-b351-3d2ef30e212f https://claude.ai/chat/1caf57d7-7999-4ceb-ba45-846a91e0d4a5"
+        - "⭐️ PICOMQ / DURABLE STREAMS"
+        - "🔴 REDIS"
+        - "🏪 OPTIONS"
+        - Faust
+        - streams
+        - "🟨 ZA"
+        - "old notes"
+        - "Streaming: Kafka topic carries raw web click events from frontends to data lake."
+        - "Stream processing: Flink job consumes that topic, agg \"clicks per user per 5-minute window,\" push res to Redis for dashboards"
+        data/eng/01-ingest.md:
+        - "⛩️"
+        - "参考"
+        - "进步"
+        - "🔢 STEPS"
+        - mask
+        - "entity resolution (splink)"
+        - "Structured extraction using your RAG notes"
 ```
