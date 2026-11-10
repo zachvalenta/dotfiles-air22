@@ -2,11 +2,11 @@
 strategies:
   ext:
     tool: /Users/zach/Documents/denv/bin/ext
-    guide: ctx-strategies/ext.md
+    guide: strats/ext.md
   json-index:
-    guide: ctx-strategies/json-index.md
+    guide: strats/json-index.md
   filesystem:
-    guide: ctx-strategies/filesystem.md
+    guide: strats/fs.md
 
 notes:
   sw:

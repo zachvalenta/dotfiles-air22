@@ -1,10 +1,11 @@
 import * as fs from "node:fs";
 import * as os from "node:os";
 import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 import type { AutocompleteItem } from "@earendil-works/pi-tui";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 
-const CONFIG_PATH = "/Users/zach/Documents/denv/dotfiles/ai/clankers/pi/ctx.yaml";
+const CONFIG_PATH = path.join(path.dirname(fs.realpathSync(fileURLToPath(import.meta.url))), "contexts.yaml");
 const MAX_FILE_BYTES = 80 * 1024;
 
 type YamlValue = string | null | YamlMap;
@@ -45,7 +46,7 @@ function yamlScalar(value: string): string | null {
 	return trimmed;
 }
 
-// Deliberately small YAML reader: ctx.yaml is a mapping-only config. Keeping it
+// Deliberately small YAML reader: contexts.yaml is a mapping-only config. Keeping it
 // dependency-free lets this extension load from a dotfiles directory directly.
 function parseYaml(text: string): YamlMap {
 	const root: YamlMap = {};
@@ -88,7 +89,7 @@ function parseConfig(): Source[] {
 	const configDir = path.dirname(CONFIG_PATH);
 	const config = parseYaml(fs.readFileSync(CONFIG_PATH, "utf8"));
 	const strategyMap = config.strategies;
-	if (!strategyMap || typeof strategyMap === "string") throw new Error("ctx.yaml needs a top-level \`strategies\` mapping");
+	if (!strategyMap || typeof strategyMap === "string") throw new Error("contexts.yaml needs a top-level \`strategies\` mapping");
 
 	const strategies = new Map<string, Strategy>();
 	for (const [name, value] of Object.entries(strategyMap)) {

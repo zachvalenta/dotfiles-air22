@@ -10,17 +10,17 @@ The agent receives the two roots and their respective discovery playbooks. It sh
 
 ## config
 
-`ctx.ts` reads `ctx.yaml` beside it. It is mapping-only YAML, intentionally dependency-free. Context names are the nested mapping path; `strategies` is reserved.
+`main.ts` reads `contexts.yaml` beside it. It is mapping-only YAML, intentionally dependency-free. Context names are the nested mapping path; `strategies` is reserved.
 
 ```yaml
 strategies:
   ext:
     tool: /Users/zach/Documents/denv/bin/ext
-    guide: ctx-strategies/ext.md
+    guide: strats/ext.md
   json-index:
-    guide: ctx-strategies/json-index.md
+    guide: strats/json-index.md
   filesystem:
-    guide: ctx-strategies/filesystem.md
+    guide: strats/fs.md
 
 notes:
   sw:
@@ -51,7 +51,7 @@ Add a new guide when a corpus needs a different search procedure; do not encode 
 
 ## usage
 
-```text
+```sh
 /ctx notes.sw notes.tasks -- what should I build next?
 /ctx notes.sw -- find notes related to DuckDB extensions
 /ctx colligo.eng/aws/cognito.md -- summarize this file
