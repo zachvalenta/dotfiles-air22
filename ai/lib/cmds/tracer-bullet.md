@@ -2,8 +2,6 @@ Teach me about $ARGUMENTS.
 
 # HOWTO
 
-Start with a `README.md`.
-
 Delineate how the big pieces connect in small, linear steps via code snippets, like this:
 
 * `/Users/zach/Documents/zv/projects/toys/semantic-search`
