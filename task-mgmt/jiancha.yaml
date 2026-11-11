@@ -1,0 +1,29 @@
+notes:
+  sw:
+    path: /Users/zach/Documents/zv/notes/sw
+    sync: sprint
+  domains: /Users/zach/Documents/zv/notes/domains
+  bookcase: /Users/zach/Documents/zv/notes/bookcase
+  worldview: /Users/zach/Documents/zv/personal/worldview
+  tasks:
+    path: /Users/zach/Documents/zv/personal/corkboard-tasks
+    sync: main
+
+projects:
+  resume: /Users/zach/Documents/zv/projects/tools/resume-typst
+  alt: /Users/zach/Documents/zv/projects/tools/altman
+  ats: /Users/zach/Documents/zv/projects/tools/ats
+
+denv:
+  dot: /Users/zach/Documents/denv/dotfiles
+  worklogs: /Users/zach/Documents/zv/personal/worklogs
+  # bin: /Users/zach/Documents/denv/bin
+  # logs: /Users/zach/Documents/denv/logs
+
+colligo:
+  tracer: /Users/zach/Documents/zv/projects/design/tracer-bullet
+  # org: /Users/zach/Documents/zv/work/colligo/docs/org
+  worklogs: /Users/zach/Documents/zv/work/colligo/docs/worklogs
+  eng:
+    path: /Users/zach/Documents/zv/work/colligo/docs/eng
+    sync: main
