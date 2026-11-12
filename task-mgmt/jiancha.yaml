@@ -2,9 +2,15 @@ notes:
   sw:
     path: /Users/zach/Documents/zv/notes/sw
     sync: sprint
-  domains: /Users/zach/Documents/zv/notes/domains
-  bookcase: /Users/zach/Documents/zv/notes/bookcase
-  worldview: /Users/zach/Documents/zv/personal/worldview
+  domains:
+    path: /Users/zach/Documents/zv/notes/domains
+    sync: sprint
+  bookcase:
+    path: /Users/zach/Documents/zv/notes/bookcase
+    sync: master
+  worldview:
+    path: /Users/zach/Documents/zv/personal/worldview
+    sync: sprint
   tasks:
     path: /Users/zach/Documents/zv/personal/corkboard-tasks
     sync: main
