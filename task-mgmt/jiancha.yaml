@@ -10,7 +10,7 @@ notes:
     sync: master
   worldview:
     path: /Users/zach/Documents/zv/personal/worldview
-    sync: sprint
+    sync: main
   tasks:
     path: /Users/zach/Documents/zv/personal/corkboard-tasks
     sync: main
@@ -22,7 +22,9 @@ projects:
 
 denv:
   dot: /Users/zach/Documents/denv/dotfiles
-  worklogs: /Users/zach/Documents/zv/personal/worklogs
+  worklogs:
+    path: /Users/zach/Documents/zv/personal/worklogs
+    sync: sprint
   # bin: /Users/zach/Documents/denv/bin
   # logs: /Users/zach/Documents/denv/logs
 
