@@ -15,6 +15,18 @@
 			"```"
 		]
 	},
+    "meta": {
+		"prefix": "mdy",
+		"description": "YAML metadata",
+		"body": [
+            "```yaml",
+            "desc: $1",
+            "related:",
+            "tags:",
+            "```",
+            ""
+        ]
+    },
 	"filetree": {
 		"prefix": "mft",
 		"description": "file tree",
