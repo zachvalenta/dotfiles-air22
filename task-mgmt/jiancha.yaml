@@ -16,9 +16,11 @@ notes:
     sync: main
 
 projects:
-  resume: /Users/zach/Documents/zv/projects/tools/resume-typst
-  alt: /Users/zach/Documents/zv/projects/tools/altman
-  ats: /Users/zach/Documents/zv/projects/tools/ats
+  # resume: /Users/zach/Documents/zv/projects/tools/resume-typst
+  # alt: /Users/zach/Documents/zv/projects/tools/altman
+  # lifetime: /Users/zach/Documents/zv/projects/tools/ats
+  card scan: /Users/zach/Desktop/card-scan
+
 
 denv:
   dot: /Users/zach/Documents/denv/dotfiles
