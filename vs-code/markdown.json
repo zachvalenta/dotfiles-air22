@@ -43,11 +43,13 @@
         "prefix": "mdn",
         "description": "note template",
         "body": [
-            "# ⛩️",
-            "",
-            "## 参考",
-            "",
-            "## 进步",
+            "---",
+            "desc: $1",
+            "related:",
+            "resources:",
+            "done:",
+            "todo:",
+            "---",
             "",
             "# 🟨 ZA",
             ""
